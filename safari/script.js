@@ -1,39 +1,69 @@
-let current = 1;
+let currentScene = 1;
 
-function go(next) {
-  document.getElementById(`scene${current}`).classList.add("hidden");
-  document.getElementById(`scene${next}`).classList.remove("hidden");
-  current = next;
+/* =========================
+   SCENE SWITCHER (SAFARI ONLY)
+========================= */
+
+function goScene(next) {
+
+  const currentEl = document.getElementById(`scene${currentScene}`);
+  const nextEl = document.getElementById(`scene${next}`);
+
+  if (!currentEl || !nextEl) return;
+
+  currentEl.classList.add("hidden");
+  nextEl.classList.remove("hidden");
+
+  currentScene = next;
 }
 
-/* loader */
+/* =========================
+   AUTO START FLOW
+========================= */
+
 window.addEventListener("load", () => {
+
+  // cinematic delay before starting
   setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-  }, 1200);
+    goScene(2);
+  }, 3000);
+
 });
 
-/* FLOW */
-setTimeout(() => go(2), 4500);
+/* =========================
+   USER INTERACTIONS (SCOPED SAFARI)
+========================= */
 
-/* interactions */
 document.addEventListener("click", (e) => {
 
-  if (e.target.classList.contains("cta")) {
-    go(3);
+  const target = e.target;
+
+  // CTA button (Scene 2 → Scene 3)
+  if (target.classList.contains("safari-cta")) {
+    goScene(3);
   }
 
-  if (e.target.id === "journal") {
-    document.getElementById("inviteText").classList.remove("hidden");
-    setTimeout(() => go(4), 1400);
+  // Journal click (Scene 3 → Scene 4)
+  if (target.id === "journal") {
+    const invite = document.getElementById("inviteText");
+
+    if (invite) {
+      invite.classList.remove("hidden");
+    }
+
+    setTimeout(() => {
+      goScene(4);
+    }, 1200);
   }
 
-  if (e.target.classList.contains("next")) {
-    go(5);
+  // Next buttons
+  if (target.classList.contains("safari-next")) {
+    goScene(5);
   }
 
-  if (e.target.classList.contains("rsvp")) {
-    go(6);
+  // RSVP button
+  if (target.classList.contains("safari-rsvp")) {
+    goScene(6);
   }
 
 });
