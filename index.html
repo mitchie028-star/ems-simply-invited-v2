@@ -8,99 +8,117 @@
   <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- CONFETTI -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-  <!-- PRESS START -->
-  <div id="startScreen">
-    <h1>PRESS START</h1>
+<!-- PRESS START -->
+<div id="startScreen">
+  <h1>PRESS START</h1>
+</div>
+
+<!-- BACKGROUND -->
+<video id="bgVideo" autoplay muted loop playsinline>
+  <source src="assets/intro.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<!-- HERO -->
+<header class="hero">
+
+  <img src="assets/mybirthday.png" class="hero-sticker" />
+
+  <div class="hero-content">
+
+    <h1 class="mario-title pop-title">
+
+      <span class="title-top">
+        Princess Aiofee is turning
+      </span>
+
+      <span class="level-number">7</span>
+
+    </h1>
+
+    <p class="hero-text">
+      Another castle? Nope, just another amazing level-up! Aiofee is turning 7 and we are throwing a Super Mario celebration. Join us as we jump into the fun, grab some power-ups, and defeat the boredom. Let’s-a-go!
+    </p>
+
   </div>
 
-  <!-- BACKGROUND VIDEO -->
-  <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="assets/Intro.mp4" type="video/mp4">
-  </video>
+</header>
 
-  <div class="overlay"></div>
+<!-- GALLERY -->
+<section class="gallery">
 
-  <!-- HERO -->
-  <header class="hero">
+  <h2 class="section-title">Princess Aiofee Over the Years</h2>
 
-    <img src="assets/mybirthday.png" class="hero-sticker" />
-
-    <div class="hero-content">
-
-      <h1 class="mario-title">
-        Princess Aiofee is turning <span class="level-number">7</span>
-      </h1>
-
-      <p class="hero-text">
-        Another castle? Nope, just another amazing level-up! Aiofee is turning 7 and we are throwing a Super Mario celebration. Join us as we jump into the fun, grab some power-ups, and defeat the boredom. Let’s-a-go!
-      </p>
-
+  <div class="image-row">
+    <div class="level-card">
+      <img src="assets/baby-level.png" />
+      <p>Baby Mode</p>
     </div>
 
-  </header>
-
-  <!-- GALLERY -->
-  <section class="image-row">
-    <img src="assets/baby-level.png" />
-    <img src="assets/child-level.png" />
-    <img src="assets/princess-level.png" />
-  </section>
-
-  <!-- DETAILS -->
-  <section class="details">
-    <h2>Details</h2>
-    <p>
-      Jollibee Puregold Luzon Commonwealth<br>
-      Saturday, June 14, 2026<br>
-      11:00 AM
-    </p>
-  </section>
-
-  <!-- MAP -->
-  <section class="map">
-    <h2>Location</h2>
-    <iframe
-      src="https://www.google.com/maps?q=Jollibee%20Puregold%20Luzon%20Commonwealth&output=embed"
-      width="100%"
-      height="300"
-      loading="lazy">
-    </iframe>
-  </section>
-
-  <!-- RSVP GAME MODE -->
-  <section class="rsvp" id="rsvpSection">
-
-    <h2 class="rsvp-title">RSVP</h2>
-
-    <div id="rsvpLock" class="rsvp-lock">
-      LEVEL LOCKED 🔒
+    <div class="level-card">
+      <img src="assets/child-level.png" />
+      <p>Adventure Mode</p>
     </div>
 
-    <div id="rsvpForm" class="rsvp-form hidden">
-
-      <input type="text" placeholder="Name" id="name"/>
-      <input type="number" placeholder="Number of Guests" id="guests"/>
-      <textarea placeholder="Message for Princess Aiofee" id="message"></textarea>
-
-      <button onclick="submitRSVP()">Send RSVP</button>
-
+    <div class="level-card">
+      <img src="assets/princess-level.png" />
+      <p>Princess Mode</p>
     </div>
+  </div>
 
-    <!-- VICTORY SCREEN -->
-    <div id="victoryScreen" class="victory hidden">
-      LEVEL COMPLETE! 🎮<br>
-      THANK YOU PLAYER
-    </div>
+</section>
 
-  </section>
+<!-- DETAILS -->
+<section class="details">
+  <h2>Details</h2>
+  <p>
+    Jollibee Puregold Luzon Commonwealth<br>
+    June 14, 2026 • 11:00 AM
+  </p>
+</section>
 
-  <script src="script.js"></script>
+<!-- MAP -->
+<section class="map">
+  <h2>Location</h2>
+
+  <iframe
+    src="https://www.google.com/maps?q=Jollibee%20Puregold%20Luzon%20Commonwealth&output=embed"
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp" id="rsvpSection">
+
+  <h2 class="rsvp-title">RSVP</h2>
+
+  <div id="rsvpLock" class="rsvp-lock">
+    LEVEL LOCKED 🔒
+  </div>
+
+  <div id="rsvpForm" class="rsvp-form hidden">
+
+    <input type="text" placeholder="Name" />
+    <input type="number" placeholder="Guests" />
+    <textarea placeholder="Message"></textarea>
+
+    <button onclick="submitRSVP()">Send RSVP</button>
+
+  </div>
+
+  <div id="victoryScreen" class="victory hidden">
+    LEVEL COMPLETE! 🎮<br>
+    THANK YOU PLAYER
+  </div>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
