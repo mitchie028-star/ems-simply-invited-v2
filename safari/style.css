@@ -28,15 +28,13 @@ body.safari {
   z-index: -1;
 }
 
-/* ================= APP ================= */
+/* ================= SCENES ================= */
 
 .safari-app {
   position: relative;
   width: 100vw;
   height: 100vh;
 }
-
-/* ================= SCENES (CRITICAL FIX) ================= */
 
 .scene {
   position: absolute;
@@ -60,7 +58,7 @@ body.safari {
   pointer-events: auto;
 }
 
-/* ================= ELEMENTS ================= */
+/* ================= TEXT ================= */
 
 .title {
   font-size: 2rem;
@@ -71,10 +69,14 @@ body.safari {
   font-size: 1.4rem;
 }
 
+/* ================= BABY ================= */
+
 .baby {
   width: 200px;
   margin-bottom: 20px;
 }
+
+/* ================= BUTTON ================= */
 
 .btn {
   margin-top: 20px;
@@ -86,7 +88,22 @@ body.safari {
   cursor: pointer;
 }
 
-/* journal */
+/* ================= ANIMALS (FIXED LAYOUT) ================= */
+
+.animal {
+  position: absolute;
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.monkey { top: 12%; left: 10%; }
+.lion { bottom: 15%; right: 10%; }
+.giraffe { top: 10%; right: 12%; }
+.elephant { bottom: 10%; left: 12%; }
+.parrot { top: 40%; left: 48%; }
+
+/* ================= JOURNAL ================= */
+
 .journal {
   width: 200px;
   height: 150px;
@@ -94,7 +111,8 @@ body.safari {
   border-radius: 12px;
 }
 
-/* invite text */
+/* ================= INVITE ================= */
+
 .invite {
   margin-top: 20px;
   font-size: 2rem;
@@ -104,11 +122,19 @@ body.safari {
   display: none;
 }
 
-/* inputs */
+/* ================= INPUTS ================= */
+
 input, textarea {
   margin-top: 10px;
   width: 250px;
   padding: 10px;
   border: none;
   border-radius: 8px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
