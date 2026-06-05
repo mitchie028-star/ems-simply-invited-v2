@@ -9,11 +9,10 @@ document.getElementById("startScreen").addEventListener("click", function () {
     document.querySelector(".hero").classList.add("show");
   }, 600);
 
-  setTimeout(initRSVPGame, 1200);
 });
 
-/* RSVP TRIGGER */
-function initRSVPGame() {
+/* RSVP UNLOCK ON SCROLL */
+window.addEventListener("load", () => {
   const rsvp = document.getElementById("rsvpSection");
 
   const observer = new IntersectionObserver((entries) => {
@@ -26,9 +25,9 @@ function initRSVPGame() {
   }, { threshold: 0.7 });
 
   observer.observe(rsvp);
-}
+});
 
-/* UNLOCK SEQUENCE */
+/* UNLOCK */
 function unlockRSVP() {
   unlocked = true;
 
@@ -40,7 +39,6 @@ function unlockRSVP() {
   setTimeout(() => {
     document.getElementById("rsvpLock").style.display = "none";
     document.getElementById("rsvpForm").classList.remove("hidden");
-
     launchConfetti();
   }, 800);
 
@@ -67,8 +65,20 @@ function launchConfetti() {
   })();
 }
 
-/* SUBMIT */
+/* SUBMIT → FINAL GAME END */
 function submitRSVP() {
+
+  document.body.classList.add("shake");
+
+  const audio = new Audio("assets/fanfare_super_mario.mp3");
+  audio.play().catch(() => {});
+
   launchConfetti();
-  alert("THANK YOU PLAYER! 🎮 RSVP RECEIVED");
+
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+
+    document.getElementById("rsvpForm").classList.add("hidden");
+    document.getElementById("victoryScreen").classList.remove("hidden");
+  }, 800);
 }
