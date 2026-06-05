@@ -1,4 +1,4 @@
-// Optional: play background sound
+// Enable sound on first interaction
 window.addEventListener("click", () => {
   const audio = document.getElementById("bg-sound");
   if (audio) {
@@ -8,18 +8,24 @@ window.addEventListener("click", () => {
 }, { once: true });
 
 
-// SCREEN 1 TIMING FLOW
+// SCREEN TRANSITION: 1 → 2
 setTimeout(() => {
   const screen1 = document.getElementById("screen1");
+  const screen2 = document.getElementById("screen2");
 
   screen1.classList.add("fade-out");
 
   setTimeout(() => {
-    // Placeholder for Screen 2
-    console.log("Go to Screen 2");
-
-    // Later we will replace this with actual Screen 2 render
-    // showScreen2();
+    screen1.style.display = "none";
+    screen2.classList.remove("hidden");
   }, 1500);
 
 }, 5000);
+
+
+// CTA BUTTON
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cta")) {
+    alert("Next: Screen 3 - Jungle Journal Opening");
+  }
+});
