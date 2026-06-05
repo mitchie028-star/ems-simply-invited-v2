@@ -1,212 +1,213 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --glass: rgba(0,0,0,0.55);
+  --soft: rgba(255,255,255,0.12);
 }
 
-body {
-  overflow: hidden;
-  font-family: Arial;
-  background: black;
+/* =========================
+   GLOBAL RESET (SCOPED SAFARI ONLY)
+========================= */
+
+body.safari{
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  background:black;
+  color:white;
 }
 
-/* ================= SCENES ================= */
+/* =========================
+   SCENE SYSTEM (ISOLATED)
+========================= */
 
-.scene {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  transition: opacity 1.2s ease, transform 1.2s ease;
+.safari-screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  transition:opacity 1.2s ease, transform 1.2s ease;
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.05);
+.safari-screen.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(1.05);
 }
 
-/* cinematic vignette */
-.scene::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.55));
+/* cinematic fade vignette */
+.safari-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
+  pointer-events:none;
 }
 
-/* ================= BACKGROUNDS ================= */
+/* =========================
+   BACKGROUND LAYER
+========================= */
 
-.bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.1);
-  animation: zoom 12s infinite alternate;
+.safari-bg{
+  position:fixed;
+  inset:0;
+  background:url("/assets/mybirthday.png") center/cover no-repeat;
+  transform:scale(1.1);
+  animation:zoom 14s infinite alternate;
+  z-index:-3;
 }
 
-.bg1 { background-image: url("../assets/mybirthday.png"); }
-.bg2 { background-image: url("../assets/mybirthday.png"); }
-.bg3 { background-image: url("../assets/mybirthday.png"); }
-.bg4 { background-image: url("../assets/mybirthday.png"); }
-.bg5 { background-image: url("../assets/mybirthday.png"); }
-
-/* ================= LOADER ================= */
-
-#loader {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+.safari-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:-2;
 }
 
-.loader-text {
-  color: white;
-  font-size: 1.2rem;
-  animation: pulse 1.5s infinite;
+/* =========================
+   INTRO SCREEN
+========================= */
+
+.safari-title{
+  font-size:2.4rem;
+  letter-spacing:1px;
+  animation:fadeIn 2s ease;
 }
 
-/* ================= SCENE 1 ================= */
+/* =========================
+   HERO SCREEN
+========================= */
 
-.title {
-  position: absolute;
-  top: 45%;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 2.4rem;
-  letter-spacing: 1px;
+.safari-animals{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
 }
 
-/* ================= SCENE 2 ================= */
-
-.baby {
-  position: absolute;
-  width: 180px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  animation: float 3s infinite ease-in-out;
+.animal{
+  position:absolute;
+  width:90px;
+  animation:float 3s ease-in-out infinite;
 }
 
-.headline {
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 1.8rem;
+.monkey{ top:10%; left:10%; }
+.giraffe{ top:12%; right:10%; }
+.lion{ bottom:15%; right:12%; }
+.elephant{ bottom:10%; left:15%; }
+.parrot{ top:40%; left:50%; }
+
+/* baby center */
+.safari-center{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 
-.cta {
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 14px 24px;
-  border-radius: 30px;
-  border: none;
-  background: gold;
-  font-weight: bold;
+.safari-baby{
+  width:200px;
+  max-width:60vw;
+  animation:pulse 3s ease-in-out infinite;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
-/* ================= SCENE 3 ================= */
-
-.journal {
-  position: absolute;
-  width: 200px;
-  height: 150px;
-  background: #8b5e3c;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 12px;
+.safari-text{
+  margin-top:15px;
+  font-size:1.4rem;
 }
 
-.invite {
-  position: absolute;
-  top: 45%;
-  width: 100%;
-  text-align: center;
-  font-size: 2.5rem;
-  color: white;
+/* CTA */
+.safari-btn{
+  margin-top:20px;
+  padding:12px 22px;
+  border:none;
+  border-radius:30px;
+  background:gold;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* ================= SCENE 4 ================= */
+/* =========================
+   JOURNAL SCREEN
+========================= */
 
-.event {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translateY(-50%);
-  color: white;
+.journal-book{
+  width:200px;
+  height:150px;
+  background:#8b5e3c;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* ================= SCENE 5 ================= */
-
-.map {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translateY(-50%);
-  color: white;
+.journal-text{
+  margin-top:20px;
+  font-size:2rem;
 }
 
-/* ================= SCENE 6 ================= */
+/* =========================
+   DETAILS / MAP / RSVP
+========================= */
 
-.rsvpWrap {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.safari-heading{
+  font-size:2rem;
+  margin-bottom:20px;
 }
 
-form {
-  width: 300px;
-  padding: 20px;
-  background: rgba(0,0,0,0.75);
-  border-radius: 12px;
-  color: white;
+.details-card,
+.map-flow,
+.rsvp-form{
+  background:var(--glass);
+  padding:20px;
+  border-radius:14px;
+  border:1px solid var(--soft);
+  min-width:280px;
 }
 
-input, textarea {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
+/* form */
+.rsvp-form input,
+.rsvp-form textarea{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  border-radius:8px;
 }
 
-button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 20px;
-  background: gold;
-  font-weight: bold;
+.rsvp-form button{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  background:gold;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* ================= ANIMATIONS ================= */
+/* =========================
+   ANIMATIONS
+========================= */
 
-@keyframes zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1.2); }
+@keyframes zoom{
+  from{ transform:scale(1.1); }
+  to{ transform:scale(1.25); }
 }
 
-@keyframes float {
-  0% { transform: translate(-50%, -50%); }
-  50% { transform: translate(-50%, -54%); }
-  100% { transform: translate(-50%, -50%); }
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
 }
 
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+@keyframes pulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.05); }
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(20px); }
+  to{ opacity:1; transform:translateY(0); }
 }
