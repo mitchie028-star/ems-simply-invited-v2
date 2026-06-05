@@ -1,4 +1,3 @@
-```javascript
 console.log("Safari content loaded");
 
 let current = 1;
