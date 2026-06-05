@@ -10,138 +10,83 @@
 
 <!-- ================= LOADER ================= -->
 <div id="loader">
-  <div class="loader-text">Loading Safari Adventure...</div>
+  <div class="loader-text">Entering the Safari...</div>
 </div>
 
-<!-- ================= AUDIO LAYERS ================= -->
-<audio id="bg-sound" loop>
-  <source src="../assets/fanfare_super_mario.mp3" type="audio/mp3">
-</audio>
+<!-- ================= SCENES ================= -->
 
-<audio id="jungle" loop>
-  <source src="../assets/jungle.mp3" type="audio/mp3">
-</audio>
-
-<audio id="birds" loop>
-  <source src="../assets/birds.mp3" type="audio/mp3">
-</audio>
-
-<!-- ================= SCREEN 1 ================= -->
-<div id="screen1" class="screen">
-
-  <div class="bg"></div>
-  <div class="overlay"></div>
-  <div class="leaves"></div>
-
+<!-- SCENE 1 -->
+<div id="scene1" class="scene">
+  <div class="bg bg1"></div>
   <h1 class="title">A Wild Adventure Awaits...</h1>
-
 </div>
 
-<!-- ================= SCREEN 2 ================= -->
-<div id="screen2" class="screen hidden">
+<!-- SCENE 2 -->
+<div id="scene2" class="scene hidden">
+  <div class="bg bg2"></div>
 
-  <div class="stage">
+  <img src="../assets/baby.png" class="baby"/>
 
-    <img src="../assets/monkey.png" class="animal monkey">
-    <img src="../assets/giraffe.png" class="animal giraffe">
-    <img src="../assets/zebra.png" class="animal zebra">
-    <img src="../assets/lion.png" class="animal lion">
-    <img src="../assets/tiger.png" class="animal tiger">
-    <img src="../assets/elephant.png" class="animal elephant">
+  <h2 class="headline">Our Little Explorer Turns ONE</h2>
 
-    <img src="../assets/baby.png" class="baby">
+  <button class="cta">Begin Journey</button>
+</div>
 
-    <h2 class="headline">
-      Our Little Explorer<br/>
-      is Turning ONE!
-    </h2>
+<!-- SCENE 3 -->
+<div id="scene3" class="scene hidden">
+  <div class="bg bg3"></div>
 
-    <button class="cta">Join The Adventure →</button>
+  <div id="journal" class="journal"></div>
 
+  <div id="inviteText" class="invite hidden">YOU’RE INVITED</div>
+</div>
+
+<!-- SCENE 4 -->
+<div id="scene4" class="scene hidden">
+  <div class="bg bg4"></div>
+
+  <div class="event">
+    <h1>ETHAN'S SAFARI</h1>
+    <p>June 25, 2026</p>
+    <p>2:00 PM</p>
+    <p>The Blue Leaf Pavilion</p>
+
+    <button class="next">View Map</button>
   </div>
 </div>
 
-<!-- ================= SCREEN 3 ================= -->
-<div id="screen3" class="screen hidden">
+<!-- SCENE 5 -->
+<div id="scene5" class="scene hidden">
+  <div class="bg bg5"></div>
 
-  <div class="journal-stage">
+  <div class="map">
+    <h1>Your Safari Path</h1>
 
-    <div class="journal-bg"></div>
-    <div class="trees"></div>
-
-    <div id="journal" class="journal"></div>
-
-    <div id="inviteText" class="invite-text hidden">
-      YOU'RE INVITED
+    <div class="path">
+      🏠 Start → 🦁 Jungle Trail → 📍 Celebration
     </div>
 
+    <button class="rsvp">RSVP Now</button>
   </div>
 </div>
 
-<!-- ================= SCREEN 4 ================= -->
-<div id="screen4" class="screen hidden">
+<!-- SCENE 6 (RSVP) -->
+<div id="scene6" class="scene hidden">
+  <div class="rsvpWrap">
 
-  <div class="event-bg"></div>
-  <div class="event-overlay"></div>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
-  <div class="event-content">
+      <h1>RSVP</h1>
 
-    <h1 class="event-title">
-      ETHAN'S<br/>
-      WILD ONE SAFARI
-    </h1>
+      <input name="name" placeholder="Name" required />
+      <input name="guests" type="number" placeholder="Guests" required />
+      <textarea name="message" placeholder="Message (optional)"></textarea>
 
-    <div class="event-details">
-      <p>Saturday</p>
-      <p>June 25, 2026</p>
-      <p>2:00 PM</p>
-      <p>The Blue Leaf Events Pavilion</p>
-    </div>
+      <button type="submit">Send RSVP</button>
 
-    <button class="next-btn">View Map →</button>
+    </form>
 
   </div>
-</div>
-
-<!-- ================= SCREEN 5 ================= -->
-<div id="screen5" class="screen hidden">
-
-  <div class="map-bg"></div>
-  <div class="map-overlay"></div>
-
-  <div class="map-content">
-
-    <h1 class="map-title">Your Safari Journey</h1>
-
-    <div class="map-path">
-      🏠 Home<br/>↓<br/>
-      🦁 Jungle Trail<br/>↓<br/>
-      📍 Venue
-    </div>
-
-    <button class="rsvp-btn">Final Stop → RSVP</button>
-
-  </div>
-</div>
-
-<!-- ================= SCREEN 6 ================= -->
-<div id="screen6" class="screen hidden">
-
-  <div class="rsvp-bg"></div>
-  <div class="rsvp-overlay"></div>
-
-  <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-    <h1>RSVP</h1>
-
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="number" name="guests" placeholder="Guests" required>
-    <textarea name="message" placeholder="Message"></textarea>
-
-    <button type="submit">Send</button>
-
-  </form>
-
 </div>
 
 <script src="script.js"></script>
