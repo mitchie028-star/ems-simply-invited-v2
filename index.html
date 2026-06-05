@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Princess Aiofee Invitation</title>
 
+  <!-- FONTS -->
   <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css"/>
 
+  <!-- CONFETTI -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-<!-- PRESS START -->
+<!-- PRESS START OVERLAY -->
 <div id="startScreen">
   <h1>PRESS START</h1>
 </div>
 
-<!-- BACKGROUND -->
+<!-- BACKGROUND VIDEO -->
 <video id="bgVideo" autoplay muted loop playsinline>
   <source src="assets/Intro.mp4" type="video/mp4">
 </video>
@@ -31,18 +35,15 @@
 
   <div class="hero-content">
 
-    <h1 class="mario-title pop-title">
+    <h1 class="mario-title">
 
-      <span class="title-top">
-        Princess Aiofee is turning
-      </span>
-
+      <span class="title-line">Princess Aiofee is turning</span>
       <span class="level-number">7</span>
 
     </h1>
 
     <p class="hero-text">
-      Another castle? Nope, just another amazing level-up! Aiofee is turning 7 and we are throwing a Super Mario celebration. Join us as we jump into the fun, grab some power-ups, and defeat the boredom. Let’s-a-go!
+      Another castle? Nope, just another amazing level-up! Aiofee is turning 7 and we are throwing a Super Mario celebration. Let’s jump into the fun, grab power-ups, and defeat boredom. Let’s-a-go!
     </p>
 
   </div>
@@ -55,17 +56,17 @@
   <h2 class="section-title">Princess Aiofee Over the Years</h2>
 
   <div class="image-row">
-    <div class="level-card">
+    <div class="card">
       <img src="assets/baby-level.png" />
       <p>Baby Mode</p>
     </div>
 
-    <div class="level-card">
+    <div class="card">
       <img src="assets/child-level.png" />
       <p>Adventure Mode</p>
     </div>
 
-    <div class="level-card">
+    <div class="card">
       <img src="assets/princess-level.png" />
       <p>Princess Mode</p>
     </div>
@@ -85,11 +86,9 @@
 <!-- MAP -->
 <section class="map">
   <h2>Location</h2>
-
   <iframe
     src="https://www.google.com/maps?q=Jollibee%20Puregold%20Luzon%20Commonwealth&output=embed"
-    loading="lazy">
-  </iframe>
+    loading="lazy"></iframe>
 </section>
 
 <!-- RSVP -->
