@@ -1,37 +1,34 @@
 let current = 1;
 
-function showScene(n){
+function show(n){
 
   const prev = document.getElementById("scene" + current);
   const next = document.getElementById("scene" + n);
 
-  if(!next) return;
-
   if(prev) prev.classList.remove("active");
-  next.classList.add("active");
+  if(next) next.classList.add("active");
 
   current = n;
 }
 
-/* NEXT FLOW */
 function next(){
-  showScene(current + 1);
+  show(current + 1);
 }
 
 /* JOURNAL INTERACTION */
 document.addEventListener("click", (e)=>{
 
   if(e.target.id === "journal"){
-    document.getElementById("inviteText").style.display = "block";
+    document.getElementById("inviteText").classList.remove("hidden");
 
     setTimeout(()=>{
       next();
-    }, 1200);
+    }, 1000);
   }
 
 });
 
-/* SUBMIT */
-function submit(){
+/* RSVP */
+function submitRSVP(){
   alert("RSVP sent!");
 }
