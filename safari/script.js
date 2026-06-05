@@ -1,26 +1,46 @@
-console.log("Safari loaded");
+```javascript
+console.log("Safari content loaded");
 
 let current = 1;
 
-function showScene(n) {
-  document.getElementById("scene" + current).classList.remove("active");
-  document.getElementById("scene" + n).classList.add("active");
-  current = n;
+function showScene(next){
+
+  document
+    .getElementById("scene"+current)
+    .classList.remove("active");
+
+  document
+    .getElementById("scene"+next)
+    .classList.add("active");
+
+  current = next;
 }
 
-/* WAIT FOR FULL LOAD (CRITICAL SAFARI FIX) */
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-  document.body.addEventListener("click", () => {
+  document.body.addEventListener("click",(e)=>{
 
-    if (current < 6) {
-      showScene(current + 1);
+    if(
+      e.target.tagName==="INPUT" ||
+      e.target.tagName==="TEXTAREA" ||
+      e.target.tagName==="BUTTON"
+    ){
+      return;
+    }
+
+    if(current<6){
+      showScene(current+1);
     }
 
   });
 
-  document.getElementById("submitBtn").addEventListener("click", () => {
-    alert("RSVP Sent!");
-  });
+  document
+    .getElementById("submitBtn")
+    .addEventListener("click",()=>{
+
+      alert("RSVP Sent!");
+
+    });
 
 });
+```
