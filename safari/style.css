@@ -5,19 +5,16 @@
 }
 
 body.safari {
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  color: white;
+  font-family: Arial;
   background: black;
+  color: white;
+  overflow: hidden;
 }
-
-/* ================= BACKGROUND ================= */
 
 .bg {
   position: fixed;
   inset: 0;
   background: url("/assets/mybirthday.png") center/cover no-repeat;
-  transform: scale(1.1);
   z-index: -2;
 }
 
@@ -28,70 +25,25 @@ body.safari {
   z-index: -1;
 }
 
-/* ================= SCENES SYSTEM (FIX CORE BUG) ================= */
-
-.app {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
 .scene {
   position: absolute;
   inset: 0;
-
-  display: flex;
+  display: none;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
-
+  align-items: center;
   text-align: center;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
+  gap: 15px;
 }
 
 .scene.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ================= ELEMENTS ================= */
-
-h1, h2 {
-  max-width: 90%;
+  display: flex;
 }
 
 .baby {
   width: 180px;
 }
 
-/* animals FIXED GRID (no overlap EVER) */
-.animals {
-  display: grid;
-  grid-template-columns: repeat(3, 80px);
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
-
 .animals img {
-  width: 80px;
-}
-
-/* inputs */
-input, textarea {
-  width: 250px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* ================= SCENE 1 HINT ================= */
-
-.hint {
-  opacity: 0.6;
-  font-size: 0.9rem;
+  width: 70px;
 }
