@@ -1,19 +1,26 @@
-console.log("Safari JS loaded");
+console.log("Safari loaded");
 
 let current = 1;
 
-function show(n) {
+function showScene(n) {
   document.getElementById("scene" + current).classList.remove("active");
   document.getElementById("scene" + n).classList.add("active");
   current = n;
 }
 
-document.addEventListener("click", () => {
-  if (current < 6) {
-    show(current + 1);
-  }
-});
+/* WAIT FOR FULL LOAD (CRITICAL SAFARI FIX) */
+window.addEventListener("load", () => {
 
-function submitRSVP() {
-  alert("RSVP sent!");
-}
+  document.body.addEventListener("click", () => {
+
+    if (current < 6) {
+      showScene(current + 1);
+    }
+
+  });
+
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    alert("RSVP Sent!");
+  });
+
+});
