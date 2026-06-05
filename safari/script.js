@@ -1,102 +1,38 @@
+let current = 1;
 
-// =========================
-// AUDIO (soft cinematic start)
-// =========================
+// loader
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+  }, 1200);
+});
+
+// audio
 window.addEventListener("click", () => {
-  const audio = document.getElementById("bg-sound");
-  if (audio) {
-    audio.volume = 0.25;
-    audio.play().catch(() => {});
-  }
+  document.getElementById("jungle")?.play();
+  document.getElementById("birds")?.play();
 }, { once: true });
 
-
-// =========================
-// GLOBAL SCREEN STATE
-// =========================
-const screens = ["screen1", "screen2", "screen3", "screen4", "screen5"];
-let current = 0;
-
-
-// helper: cinematic transition
-function transitionTo(nextIndex, delay = 1200) {
-  const currentScreen = document.getElementById(screens[current]);
-  const nextScreen = document.getElementById(screens[nextIndex]);
-
-  // fade OUT current (like camera pulling away)
-  currentScreen.classList.add("cinematic-out");
-
-  setTimeout(() => {
-    currentScreen.style.display = "none";
-    nextScreen.classList.remove("hidden");
-    nextScreen.classList.add("cinematic-in");
-
-    current = nextIndex;
-
-    // remove animation class after play
-    setTimeout(() => {
-      nextScreen.classList.remove("cinematic-in");
-    }, 1200);
-
-  }, delay);
+// NAVIGATION
+function go(next) {
+  document.getElementById(`screen${current}`).classList.add("hidden");
+  document.getElementById(`screen${next}`).classList.remove("hidden");
+  current = next;
 }
 
+// SCREEN FLOW
+setTimeout(() => go(2), 5000);
 
-// =========================
-// AUTO FLOW (Screen 1 → 2)
-// =========================
-setTimeout(() => {
-  transitionTo(1);
-}, 5000);
-
-
-// =========================
-// SCREEN 2 → 3 (CTA)
-// =========================
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("cta")) {
-    transitionTo(2);
-  }
-});
 
+  if (e.target.classList.contains("cta")) go(3);
 
-// =========================
-// SCREEN 3 → 4 (Journal reveal click)
-// =========================
-document.addEventListener("click", (e) => {
   if (e.target.id === "journal") {
-
-    const journal = document.getElementById("journal");
-    const text = document.getElementById("inviteText");
-
-    journal.classList.add("journal-open");
-
-    setTimeout(() => {
-      text.classList.remove("hidden");
-    }, 700);
-
-    setTimeout(() => {
-      transitionTo(3);
-    }, 1800);
+    document.getElementById("inviteText").classList.remove("hidden");
+    setTimeout(() => go(4), 1500);
   }
-});
 
+  if (e.target.classList.contains("next-btn")) go(5);
 
-// =========================
-// SCREEN 4 → 5
-// =========================
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("next-btn")) {
-    transitionTo(4);
-  }
-});
-
-
-// =========================
-// SCREEN 5 CTA (future RSVP)
-// =========================
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("rsvp-btn")) {
-    alert("Final Screen: RSVP Form (next build)");
-  }
+  if (e.target.classList.contains("rsvp-btn")) go(6);
 });
