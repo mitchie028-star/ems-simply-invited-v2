@@ -3,73 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Safari Invitation</title>
-
+  <title>Safari Invite</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="safari">
 
-  <!-- BACKGROUND -->
   <div class="bg"></div>
   <div class="overlay"></div>
 
-  <!-- SCENES WRAPPER -->
-  <div class="app">
-
-    <!-- SCENE 1 -->
-    <section class="scene active" id="scene1">
-      <h1>A Wild Adventure Awaits...</h1>
-      <p class="hint">Tap anywhere to begin</p>
-    </section>
-
-    <!-- SCENE 2 -->
-    <section class="scene" id="scene2">
-      <img src="/assets/boy.png" class="baby" />
-      <h2>Our Little Explorer is Turning ONE!</h2>
-    </section>
-
-    <!-- SCENE 3 -->
-    <section class="scene" id="scene3">
-      <h2>Meet the Safari Friends</h2>
-
-      <div class="animals">
-        <img src="/assets/monkey.png" />
-        <img src="/assets/lion.png" />
-        <img src="/assets/girraffe.png" />
-        <img src="/assets/elephant.png" />
-        <img src="/assets/parrot.png" />
-      </div>
-    </section>
-
-    <!-- SCENE 4 -->
-    <section class="scene" id="scene4">
-      <h2>You’re Invited!</h2>
-      <p>June 25, 2026</p>
-      <p>2:00 PM</p>
-      <p>Blue Leaf Events Pavilion</p>
-    </section>
-
-    <!-- SCENE 5 -->
-    <section class="scene" id="scene5">
-      <h2>Adventure Map</h2>
-      <p>🏠 → 🦁 → 📍 Venue</p>
-    </section>
-
-    <!-- SCENE 6 -->
-    <section class="scene" id="scene6">
-      <h2>RSVP</h2>
-
-      <input placeholder="Name" />
-      <input placeholder="Guests" />
-      <textarea placeholder="Message"></textarea>
-
-      <button onclick="submitRSVP()">Send</button>
-    </section>
-
+  <!-- SCENE 1 -->
+  <div class="scene active" id="scene1">
+    <h1>A Wild Adventure Awaits...</h1>
+    <p>Tap anywhere to continue</p>
   </div>
 
-  <script src="script.js"></script>
+  <!-- SCENE 2 -->
+  <div class="scene" id="scene2">
+    <img src="/assets/boy.png" class="baby">
+    <h2>Meet the Explorer</h2>
+  </div>
+
+  <!-- SCENE 3 -->
+  <div class="scene" id="scene3">
+    <h2>Safari Friends</h2>
+    <div class="animals">
+      <img src="/assets/monkey.png">
+      <img src="/assets/lion.png">
+      <img src="/assets/girraffe.png">
+      <img src="/assets/elephant.png">
+      <img src="/assets/parrot.png">
+    </div>
+  </div>
+
+  <!-- SCENE 4 -->
+  <div class="scene" id="scene4">
+    <h2>You're Invited!</h2>
+    <p>June 25, 2026</p>
+    <p>2:00 PM</p>
+  </div>
+
+  <!-- SCENE 5 -->
+  <div class="scene" id="scene5">
+    <h2>Map</h2>
+    <p>🏠 → 🦁 → 📍 Venue</p>
+  </div>
+
+  <!-- SCENE 6 -->
+  <div class="scene" id="scene6">
+    <h2>RSVP</h2>
+
+    <input placeholder="Name">
+    <input placeholder="Guests">
+    <textarea placeholder="Message"></textarea>
+
+    <button onclick="submitRSVP()">Send RSVP</button>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
