@@ -8,7 +8,7 @@
   <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- CONFETTI LIB -->
+  <!-- CONFETTI -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
@@ -21,7 +21,7 @@
 
   <!-- BACKGROUND VIDEO -->
   <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="assets/Intro.mp4" type="video/mp4">
+    <source src="assets/intro.mp4" type="video/mp4">
   </video>
 
   <div class="overlay"></div>
@@ -34,7 +34,7 @@
     <div class="hero-content">
 
       <h1 class="mario-title">
-        Princess Aiofee is turning 7
+        Princess Aiofee is turning <span class="level-number">7</span>
       </h1>
 
       <p class="hero-text">
@@ -45,13 +45,11 @@
 
   </header>
 
-  <!-- IMAGE GALLERY -->
+  <!-- GALLERY -->
   <section class="image-row">
-
     <img src="assets/baby-level.png" />
     <img src="assets/child-level.png" />
     <img src="assets/princess-level.png" />
-
   </section>
 
   <!-- DETAILS -->
@@ -67,14 +65,12 @@
   <!-- MAP -->
   <section class="map">
     <h2>Location</h2>
-
     <iframe
       src="https://www.google.com/maps?q=Jollibee%20Puregold%20Luzon%20Commonwealth&output=embed"
       width="100%"
       height="300"
       loading="lazy">
     </iframe>
-
   </section>
 
   <!-- RSVP GAME MODE -->
@@ -88,12 +84,18 @@
 
     <div id="rsvpForm" class="rsvp-form hidden">
 
-      <input type="text" placeholder="Name" />
-      <input type="number" placeholder="Number of Guests" />
-      <textarea placeholder="Message for Princess Aiofee"></textarea>
+      <input type="text" placeholder="Name" id="name"/>
+      <input type="number" placeholder="Number of Guests" id="guests"/>
+      <textarea placeholder="Message for Princess Aiofee" id="message"></textarea>
 
       <button onclick="submitRSVP()">Send RSVP</button>
 
+    </div>
+
+    <!-- VICTORY SCREEN -->
+    <div id="victoryScreen" class="victory hidden">
+      LEVEL COMPLETE! 🎮<br>
+      THANK YOU PLAYER
     </div>
 
   </section>
