@@ -1,7 +1,3 @@
-/* =========================
-   GLOBAL RESET
-========================= */
-
 * {
   margin: 0;
   padding: 0;
@@ -10,65 +6,55 @@
 
 body {
   overflow: hidden;
-  font-family: Arial, sans-serif;
-  background: #000;
+  font-family: Arial;
+  background: black;
 }
 
 .screen {
   width: 100vw;
   height: 100vh;
   position: relative;
-  will-change: transform, opacity;
 }
 
 .hidden {
   display: none;
 }
 
-/* soft cinematic vignette on all screens */
+/* ================= LOADER ================= */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-text {
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+/* ================= GLOBAL EFFECTS ================= */
+
 .screen::after {
   content: "";
   position: absolute;
   inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.5));
   pointer-events: none;
-  background: radial-gradient(
-    circle at center,
-    rgba(0,0,0,0) 40%,
-    rgba(0,0,0,0.45) 100%
-  );
 }
 
-/* =========================
-   GLOBAL ANIMATIONS
-========================= */
-
-@keyframes zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1.2); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.05); }
-  100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-/* =========================
-   SCREEN 1 - INTRO
-========================= */
+/* ================= SCREEN 1 ================= */
 
 .bg {
   position: absolute;
   inset: 0;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  background: url("../assets/mybirthday.png") center/cover;
   transform: scale(1.1);
-  animation: zoom 12s ease-in-out infinite alternate;
+  animation: zoom 12s infinite alternate;
 }
 
 .overlay {
@@ -77,262 +63,150 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
-/* title cinematic reveal */
 .title {
   position: absolute;
+  top: 45%;
   width: 100%;
   text-align: center;
-  top: 45%;
   color: white;
   font-size: 2.5rem;
-  opacity: 0;
-  animation: fadeInUp 2s forwards;
-  letter-spacing: 1px;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-}
-
-/* falling leaves */
+/* leaves */
 .leaves::before {
-  content: "🍃 🍃 🍃 🍃 🍃 🍃 🍃";
+  content: "🍃 🍃 🍃 🍃 🍃";
   position: absolute;
   width: 100%;
   text-align: center;
   top: -10%;
-  font-size: 2rem;
-  opacity: 0.6;
-  animation: fall 7s linear infinite;
+  animation: fall 6s linear infinite;
 }
 
-@keyframes fall {
-  0% { transform: translateY(-20px); }
-  100% { transform: translateY(120vh); }
-}
-
-/* fade transition */
-.fade-out {
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-
-/* =========================
-   SCREEN 2 - EXPLORER
-========================= */
+/* ================= SCREEN 2 ================= */
 
 .stage {
-  width: 100vw;
-  height: 100vh;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/mybirthday.png") center/cover;
 }
 
-/* baby focus */
 .baby {
   position: absolute;
-  width: 180px;
   left: 50%;
   top: 50%;
+  width: 180px;
   transform: translate(-50%, -50%);
-  animation: pulse 2.5s ease-in-out infinite;
-  z-index: 5;
+  animation: pulse 2.5s infinite;
 }
 
-/* headline */
 .headline {
   position: absolute;
+  top: 8%;
   width: 100%;
   text-align: center;
-  top: 8%;
   color: white;
-  font-size: 2rem;
-  letter-spacing: 1px;
 }
 
-/* CTA */
 .cta {
   position: absolute;
   bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 14px 26px;
-  border-radius: 30px;
+  padding: 14px 24px;
+  background: gold;
   border: none;
-  background: linear-gradient(135deg, #ffd84d, #ffb300);
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  border-radius: 30px;
 }
 
 /* animals */
 .animal {
   position: absolute;
-  width: 90px;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+  width: 80px;
+  animation: float 3s infinite;
 }
 
-.monkey { top: 10%; left: 15%; }
-.giraffe { top: 15%; right: 10%; }
-.zebra { bottom: 20%; left: 10%; }
-.lion { bottom: 15%; right: 15%; }
-.tiger { top: 35%; right: 25%; }
-.elephant { bottom: 10%; left: 40%; }
-
-/* =========================
-   SCREEN 3 - JOURNAL
-========================= */
+/* ================= SCREEN 3 ================= */
 
 .journal-stage {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .journal-bg {
   position: absolute;
   inset: 0;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
-  filter: brightness(0.55) saturate(1.2);
-}
-
-.trees::before {
-  content: "🌿 🌿 🌿 🌿 🌿 🌿 🌿";
-  position: absolute;
-  bottom: -20%;
-  width: 100%;
-  text-align: center;
-  font-size: 3rem;
-  animation: growTrees 2.5s ease forwards;
-  opacity: 0.8;
-}
-
-@keyframes growTrees {
-  from { transform: translateY(100px); }
-  to { transform: translateY(-40vh); }
+  background: url("../assets/mybirthday.png") center/cover;
+  filter: brightness(0.6);
 }
 
 .journal {
   position: absolute;
-  width: 220px;
-  height: 160px;
+  width: 200px;
+  height: 150px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  background: #8b5e3c;
   border-radius: 12px;
-  background: linear-gradient(145deg, #8b5e3c, #6f452b);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-  cursor: pointer;
 }
 
-/* invite text */
 .invite-text {
   position: absolute;
+  top: 45%;
   width: 100%;
   text-align: center;
-  top: 45%;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
-  letter-spacing: 2px;
 }
 
-/* =========================
-   SCREEN 4 - EVENT DETAILS
-========================= */
+/* ================= SCREEN 4 ================= */
 
-.event-bg {
+.event-bg, .map-bg, .rsvp-bg {
   position: absolute;
   inset: 0;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
-  animation: zoom 14s ease-in-out infinite alternate;
+  background: url("../assets/mybirthday.png") center/cover;
 }
 
-.event-overlay {
+.event-overlay, .map-overlay, .rsvp-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.45);
 }
 
-.event-content {
+.event-content, .map-content {
   position: absolute;
+  top: 50%;
   width: 100%;
   text-align: center;
-  top: 50%;
   transform: translateY(-50%);
   color: white;
 }
 
-.event-title {
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-  line-height: 1.4;
-}
-
-.event-details {
+button {
   margin-top: 20px;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.next-btn {
-  margin-top: 30px;
-  padding: 14px 26px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #ffd84d, #ffb300);
+  padding: 12px 20px;
+  background: gold;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
+  border-radius: 20px;
 }
 
-/* =========================
-   SCREEN 5 - MAP
-========================= */
+/* ================= SCREEN 6 ================= */
 
-.map-bg {
+.rsvp-form {
   position: absolute;
-  inset: 0;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
-  filter: brightness(0.65) saturate(1.2);
-}
-
-.map-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-}
-
-.map-content {
-  position: absolute;
-  width: 100%;
-  text-align: center;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
   color: white;
+  border-radius: 12px;
 }
 
-.map-title {
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-}
-
-.map-path {
-  margin-top: 25px;
-  font-size: 1.3rem;
-  line-height: 2.2;
-}
-
-.rsvp-btn {
-  margin-top: 30px;
-  padding: 14px 26px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #ffd84d, #ffb300);
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+.rsvp-form input,
+.rsvp-form textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
 }
