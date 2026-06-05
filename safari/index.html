@@ -3,92 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Safari Invitation</title>
-  <link rel="stylesheet" href="style.css"/>
+
+  <title>Safari Adventure Invitation</title>
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
 
-<!-- ================= LOADER ================= -->
-<div id="loader">
-  <div class="loader-text">Entering the Safari...</div>
-</div>
+<body class="safari">
 
-<!-- ================= SCENES ================= -->
+  <!-- =========================
+       CINEMATIC BACKGROUND
+  ========================== -->
 
-<!-- SCENE 1 -->
-<div id="scene1" class="scene">
-  <div class="bg bg1"></div>
-  <h1 class="title">A Wild Adventure Awaits...</h1>
-</div>
+  <div class="safari-bg"></div>
+  <div class="safari-overlay"></div>
 
-<!-- SCENE 2 -->
-<div id="scene2" class="scene hidden">
-  <div class="bg bg2"></div>
+  <!-- =========================
+       SCREEN 1 - INTRO
+  ========================== -->
 
-  <img src="../assets/baby.png" class="baby"/>
+  <section class="safari-screen intro active">
 
-  <h2 class="headline">Our Little Explorer Turns ONE</h2>
+    <h1 class="safari-title">
+      A Wild Adventure Awaits...
+    </h1>
 
-  <button class="cta">Begin Journey</button>
-</div>
+  </section>
 
-<!-- SCENE 3 -->
-<div id="scene3" class="scene hidden">
-  <div class="bg bg3"></div>
+  <!-- =========================
+       SCREEN 2 - HERO BABY
+  ========================== -->
 
-  <div id="journal" class="journal"></div>
+  <section class="safari-screen hero">
 
-  <div id="inviteText" class="invite hidden">YOU’RE INVITED</div>
-</div>
+    <div class="safari-animals">
 
-<!-- SCENE 4 -->
-<div id="scene4" class="scene hidden">
-  <div class="bg bg4"></div>
+      <img src="/assets/monkey.png" class="animal monkey" />
+      <img src="/assets/giraffe.png" class="animal giraffe" />
+      <img src="/assets/lion.png" class="animal lion" />
+      <img src="/assets/elephant.png" class="animal elephant" />
+      <img src="/assets/parrot.png" class="animal parrot" />
 
-  <div class="event">
-    <h1>ETHAN'S SAFARI</h1>
-    <p>June 25, 2026</p>
-    <p>2:00 PM</p>
-    <p>The Blue Leaf Pavilion</p>
-
-    <button class="next">View Map</button>
-  </div>
-</div>
-
-<!-- SCENE 5 -->
-<div id="scene5" class="scene hidden">
-  <div class="bg bg5"></div>
-
-  <div class="map">
-    <h1>Your Safari Path</h1>
-
-    <div class="path">
-      🏠 Start → 🦁 Jungle Trail → 📍 Celebration
     </div>
 
-    <button class="rsvp">RSVP Now</button>
-  </div>
-</div>
+    <div class="safari-center">
 
-<!-- SCENE 6 (RSVP) -->
-<div id="scene6" class="scene hidden">
-  <div class="rsvpWrap">
+      <img src="/assets/baby.png" class="safari-baby" />
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <h2 class="safari-text">
+        Our Little Explorer<br>
+        is Turning ONE!
+      </h2>
 
-      <h1>RSVP</h1>
+      <button class="safari-btn">
+        Join The Adventure →
+      </button>
 
-      <input name="name" placeholder="Name" required />
-      <input name="guests" type="number" placeholder="Guests" required />
-      <textarea name="message" placeholder="Message (optional)"></textarea>
+    </div>
 
-      <button type="submit">Send RSVP</button>
+  </section>
+
+  <!-- =========================
+       SCREEN 3 - JOURNAL
+  ========================== -->
+
+  <section class="safari-screen journal">
+
+    <div class="journal-book"></div>
+
+    <h2 class="journal-text">
+      YOU’RE INVITED
+    </h2>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 4 - DETAILS
+  ========================== -->
+
+  <section class="safari-screen details">
+
+    <h2 class="safari-heading">Safari Adventure</h2>
+
+    <div class="details-card">
+
+      <p>Saturday</p>
+      <p>June 25, 2026</p>
+      <p>2:00 PM</p>
+      <p>The Blue Leaf Events Pavilion</p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 5 - MAP
+  ========================== -->
+
+  <section class="safari-screen map">
+
+    <h2 class="safari-heading">Adventure Map</h2>
+
+    <div class="map-flow">
+      <p>🏠 Start</p>
+      <p>↓</p>
+      <p>🦁 Jungle Trail</p>
+      <p>↓</p>
+      <p>📍 Party Venue</p>
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 6 - RSVP
+  ========================== -->
+
+  <section class="safari-screen rsvp">
+
+    <h2 class="safari-heading">RSVP</h2>
+
+    <form class="rsvp-form">
+
+      <input type="text" placeholder="Name" />
+      <input type="number" placeholder="Guests" />
+      <textarea placeholder="Message"></textarea>
+
+      <button type="button">
+        Count Me In!
+      </button>
 
     </form>
 
-  </div>
-</div>
+  </section>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
