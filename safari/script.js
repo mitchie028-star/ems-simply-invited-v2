@@ -1,13 +1,8 @@
 let current = 1;
 
 function show(n){
-
-  const prev = document.getElementById("scene" + current);
-  const next = document.getElementById("scene" + n);
-
-  if(prev) prev.classList.remove("active");
-  if(next) next.classList.add("active");
-
+  document.getElementById("scene" + current).classList.remove("active");
+  document.getElementById("scene" + n).classList.add("active");
   current = n;
 }
 
@@ -15,7 +10,7 @@ function next(){
   show(current + 1);
 }
 
-/* JOURNAL INTERACTION */
+/* JOURNAL */
 document.addEventListener("click", (e)=>{
 
   if(e.target.id === "journal"){
