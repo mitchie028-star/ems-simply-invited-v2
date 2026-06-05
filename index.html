@@ -5,26 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Princess Aiofee Invitation</title>
 
+  <!-- Mario Font -->
+  <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-  <!-- Background Video -->
+  <!-- PRESS START SCREEN -->
+  <div id="startScreen">
+    <h1>PRESS START</h1>
+  </div>
+
+  <!-- BACKGROUND VIDEO -->
   <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="assets/intro.mp4" type="video/mp4" />
+    <source src="assets/intro.mp4" type="video/mp4">
   </video>
 
-  <!-- Hero -->
+  <!-- DARK OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- SOUND -->
+  <audio id="coinSound" src="assets/coin.mp3" preload="auto"></audio>
+
+  <!-- HERO -->
   <header class="hero">
-    <h1 id="heroTitle"></h1>
-    <p id="heroSubtitle"></p>
+
+    <img src="assets/mybirthday.png" class="hero-sticker" />
+
+    <h1 class="mario-title">
+      Princess Aiofee is turning 7
+    </h1>
+
+    <p class="hero-text">
+      Another castle? Nope, just another amazing level-up! Aiofee is turning 7 and we are throwing a Super Mario celebration. Join us as we jump into the fun, grab some power-ups, and defeat the boredom. Let’s-a-go!
+    </p>
+
   </header>
 
-  <!-- Sections -->
-  <main id="sections"></main>
-
-  <script src="script.js"></script>
-
 </body>
+
+<script src="script.js"></script>
+
 </html>
