@@ -1,164 +1,86 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body.safari {
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  background: black;
-  color: white;
+body.safari{
+  font-family: Arial;
+  overflow:hidden;
+  background:black;
+  color:white;
 }
 
-/* =========================
-   CORE SCENE SYSTEM (FIX)
-========================= */
-
-.safari-screen {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  text-align: center;
-
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-
-  z-index: 1;
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  background:url("/assets/mybirthday.png") center/cover no-repeat;
+  transform:scale(1.1);
 }
 
-/* CRITICAL FIX: hidden MUST fully remove scene */
-.safari-screen.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.05);
-  z-index: -1;
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
 }
 
-/* =========================
-   BACKGROUND (ONLY ONE LAYER)
-========================= */
-
-.safari-bg {
-  position: fixed;
-  inset: 0;
-  background: url("/assets/mybirthday.png") center/cover no-repeat;
-  transform: scale(1.1);
-  animation: zoom 14s infinite alternate;
-  z-index: -3;
+/* APP */
+#app{
+  position:relative;
+  width:100vw;
+  height:100vh;
 }
 
-.safari-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: -2;
+/* SCENES (CRITICAL FIX) */
+.scene{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s ease;
 }
 
-/* =========================
-   SCENE CONTENT SAFETY LAYER
-========================= */
-
-.safari-screen > * {
-  position: relative;
-  z-index: 2;
+.scene.active{
+  opacity:1;
+  pointer-events:auto;
 }
 
-/* =========================
-   ANIMALS (NO OVERLAP BUG FIX)
-========================= */
-
-.safari-animals {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+/* ELEMENTS */
+.baby{
+  width:180px;
+  margin-bottom:20px;
 }
 
-.animal {
-  position: absolute;
-  width: 90px;
-  animation: float 3s ease-in-out infinite;
+.journal{
+  width:200px;
+  height:150px;
+  background:#8b5e3c;
+  border-radius:12px;
 }
 
-.monkey { top: 10%; left: 8%; }
-.giraffe { top: 12%; right: 8%; }
-.lion { bottom: 12%; right: 10%; }
-.elephant { bottom: 10%; left: 10%; }
-.parrot { top: 40%; left: 50%; }
-
-/* =========================
-   BABY FIX (THIS WAS YOUR MAIN ISSUE)
-========================= */
-
-.safari-baby {
-  width: 220px;
-  max-width: 60vw;
-  display: block;
-  margin: 0 auto;
-  animation: pulse 3s ease-in-out infinite;
-  z-index: 3;
+button{
+  margin-top:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:20px;
+  background:gold;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* =========================
-   TEXT
-========================= */
-
-.safari-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  z-index: 3;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.safari-btn {
-  margin-top: 20px;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 30px;
-  background: gold;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 3;
-}
-
-/* =========================
-   JOURNAL FIX
-========================= */
-
-.journal-book {
-  width: 200px;
-  height: 150px;
-  background: #8b5e3c;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1.25); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+input, textarea{
+  margin-top:10px;
+  padding:10px;
+  width:250px;
+  border-radius:8px;
+  border:none;
 }
