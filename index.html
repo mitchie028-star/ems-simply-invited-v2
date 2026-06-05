@@ -3,173 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Em's Simply Invited</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Safari Invitation</title>
 
-  <style>
-    :root{
-      --glass: rgba(255,255,255,0.08);
-      --border: rgba(255,255,255,0.15);
-      --gold: #ffd700;
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:'Playpen Sans', sans-serif;
-      background:black;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    /* =========================
-       BACKGROUND CINEMATIC LAYER
-    ========================== */
-
-    .bg{
-      position:fixed;
-      inset:0;
-      background:url("/assets/mybirthday.png") center/cover no-repeat;
-      filter:brightness(0.4) blur(2px);
-      transform:scale(1.1);
-      z-index:-2;
-    }
-
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:radial-gradient(circle, transparent 30%, rgba(0,0,0,0.8));
-      z-index:-1;
-    }
-
-    /* =========================
-       MAIN CONTAINER
-    ========================== */
-
-    .container{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px 20px;
-    }
-
-    h1{
-      font-size:2.5rem;
-      margin-bottom:10px;
-    }
-
-    p{
-      opacity:0.7;
-      margin-bottom:40px;
-    }
-
-    /* =========================
-       INVITE CARDS
-    ========================== */
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:20px;
-      width:100%;
-      max-width:900px;
-    }
-
-    .card{
-      background:var(--glass);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:25px;
-      text-decoration:none;
-      color:white;
-      transition:0.4s ease;
-      backdrop-filter: blur(10px);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card:hover{
-      transform:translateY(-8px) scale(1.02);
-      border-color:var(--gold);
-      box-shadow:0 10px 40px rgba(0,0,0,0.5);
-    }
-
-    .card h2{
-      font-size:1.4rem;
-      margin-bottom:10px;
-    }
-
-    .card p{
-      font-size:0.9rem;
-      opacity:0.8;
-      margin-bottom:0;
-    }
-
-    /* glow accent */
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:-50%;
-      background:radial-gradient(circle, rgba(255,215,0,0.12), transparent 60%);
-      transform:rotate(25deg);
-      opacity:0;
-      transition:0.4s;
-    }
-
-    .card:hover::after{
-      opacity:1;
-    }
-
-    /* =========================
-       FOOTER TAG
-    ========================== */
-
-    .tag{
-      margin-top:40px;
-      font-size:0.8rem;
-      opacity:0.5;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="safari">
 
-  <div class="bg"></div>
-  <div class="overlay"></div>
+  <!-- BACKGROUND -->
+  <div class="safari-bg"></div>
+  <div class="safari-overlay"></div>
 
-  <div class="container">
+  <!-- APP WRAPPER -->
+  <div class="safari-app">
 
-    <h1>Em's Simply Invited</h1>
-    <p>Choose a magical invitation experience</p>
+    <!-- SCENE 1 -->
+    <section class="scene active" id="scene1">
+      <h1 class="title">A Wild Adventure Awaits...</h1>
+    </section>
 
-    <div class="grid">
+    <!-- SCENE 2 -->
+    <section class="scene" id="scene2">
 
-      <a class="card" href="/safari/">
-        <h2>🐘 Safari Adventure</h2>
-        <p>A cinematic jungle birthday experience with animals, map, and story-driven screens.</p>
-      </a>
+      <img class="baby" src="/assets/boy.png" />
 
-      <a class="card" href="/princess/">
-        <h2>👑 Princess Adventure</h2>
-        <p>A Mario-inspired level-up party invitation with game-style progression and animation.</p>
-      </a>
+      <h2 class="text">
+        Our Little Explorer<br>is Turning ONE!
+      </h2>
 
-    </div>
+      <button class="btn" onclick="next()">
+        Join The Adventure
+      </button>
 
-    <div class="tag">
-      Handcrafted cinematic invitations ✨
-    </div>
+    </section>
+
+    <!-- SCENE 2 ANIMALS (SAFE GRID) -->
+    <section class="scene" id="scene2b">
+
+      <img class="animal monkey" src="/assets/monkey.png">
+      <img class="animal lion" src="/assets/lion.png">
+      <img class="animal giraffe" src="/assets/giraffe.png">
+      <img class="animal elephant" src="/assets/elephant.png">
+      <img class="animal parrot" src="/assets/parrot.png">
+
+      <h2 class="text">Meet the Safari Friends</h2>
+
+      <button class="btn" onclick="next()">
+        Continue
+      </button>
+
+    </section>
+
+    <!-- SCENE 3 -->
+    <section class="scene" id="scene3">
+
+      <div class="journal" id="journal"></div>
+
+      <div id="inviteText" class="invite hidden">
+        YOU’RE INVITED
+      </div>
+
+    </section>
+
+    <!-- SCENE 4 -->
+    <section class="scene" id="scene4">
+
+      <h2 class="text">Safari Adventure</h2>
+
+      <p>June 25, 2026</p>
+      <p>2:00 PM</p>
+      <p>The Blue Leaf Events Pavilion</p>
+
+      <button class="btn" onclick="next()">Next</button>
+
+    </section>
+
+    <!-- SCENE 5 -->
+    <section class="scene" id="scene5">
+
+      <h2 class="text">Adventure Map</h2>
+
+      <p>🏠 → 🦁 → 📍 Venue</p>
+
+      <button class="btn" onclick="next()">Continue</button>
+
+    </section>
+
+    <!-- SCENE 6 -->
+    <section class="scene" id="scene6">
+
+      <h2 class="text">RSVP</h2>
+
+      <input placeholder="Name" />
+      <input placeholder="Guests" />
+      <textarea placeholder="Message"></textarea>
+
+      <button class="btn" onclick="submitRSVP()">
+        Count Me In
+      </button>
+
+    </section>
 
   </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
