@@ -5,29 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Princess Aiofee Invitation</title>
 
-  <!-- Mario Font -->
   <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-  <!-- PRESS START SCREEN -->
-  <div id="startScreen">
-    <h1>PRESS START</h1>
-  </div>
-
   <!-- BACKGROUND VIDEO -->
   <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="assets/Intro.mp4" type="video/mp4">
+    <source src="assets/intro.mp4" type="video/mp4">
   </video>
 
-  <!-- DARK OVERLAY -->
   <div class="overlay"></div>
-
-  <!-- SOUND -->
-  <audio id="coinSound" src="assets/coin.mp3" preload="auto"></audio>
 
   <!-- HERO -->
   <header class="hero">
@@ -44,8 +33,30 @@
 
   </header>
 
+  <!-- IMAGE ROW -->
+  <section class="image-row">
+
+    <img src="assets/baby-level.png" />
+    <img src="assets/child-level.png" />
+    <img src="assets/princess-level.png" />
+
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details">
+    <h2>Details</h2>
+    <p>
+      Jollibee Puregold Luzon Commonwealth<br>
+      Saturday, June 14, 2026<br>
+      11:00 AM
+    </p>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp">
+    <h2>RSVP</h2>
+    <a class="rsvp-btn" href="#">Confirm Attendance</a>
+  </section>
+
 </body>
-
-<script src="script.js"></script>
-
 </html>
