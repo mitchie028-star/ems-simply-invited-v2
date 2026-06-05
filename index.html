@@ -1,129 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Em's Simply Invited</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1b1b1b, #000);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+  <title>Safari Adventure Invitation</title>
 
-    /* subtle floating glow */
-    body::before {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: rgba(255, 215, 0, 0.08);
-      filter: blur(120px);
-      top: -100px;
-      left: -100px;
-      animation: floatGlow 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatGlow {
-      from { transform: translate(0,0); }
-      to { transform: translate(40px, 60px); }
-    }
-
-    .container {
-      text-align: center;
-      z-index: 2;
-      max-width: 650px;
-      padding: 20px;
-      animation: fadeIn 1.2s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-
-    p {
-      opacity: 0.6;
-      margin-bottom: 40px;
-    }
-
-    .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    a {
-      display: block;
-      padding: 18px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      color: white;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    a:hover {
-      background: rgba(255,255,255,0.12);
-      transform: scale(1.03);
-      border-color: rgba(255, 215, 0, 0.4);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
-    }
-
-    .emoji {
-      font-size: 1.3rem;
-      margin-right: 8px;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      opacity: 0.4;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body class="safari">
 
-  <div class="container">
+  <!-- =========================
+       CINEMATIC BACKGROUND
+  ========================== -->
 
-    <h1>Em's Simply Invited</h1>
-    <p>Choose a cinematic invitation experience</p>
+  <div class="safari-bg"></div>
+  <div class="safari-overlay"></div>
 
-    <div class="cards">
+  <!-- =========================
+       SCREEN 1 - INTRO
+  ========================== -->
 
-      <a href="/safari/">
-        <span class="emoji">🐘</span> Safari Adventure Invitation
-      </a>
+  <section class="safari-screen intro active">
 
-      <a href="/princess/">
-        <span class="emoji">👑</span> Princess Peach Invitation
-      </a>
+    <h1 class="safari-title">
+      A Wild Adventure Awaits...
+    </h1>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 2 - HERO BABY
+  ========================== -->
+
+  <section class="safari-screen hero">
+
+    <div class="safari-animals">
+
+      <img src="/assets/monkey.png" class="animal monkey" />
+      <img src="/assets/giraffe.png" class="animal giraffe" />
+      <img src="/assets/lion.png" class="animal lion" />
+      <img src="/assets/elephant.png" class="animal elephant" />
+      <img src="/assets/parrot.png" class="animal parrot" />
 
     </div>
 
-    <footer>
-      Crafted with cinematic storytelling ✨
-    </footer>
+    <div class="safari-center">
 
-  </div>
+      <img src="/assets/baby.png" class="safari-baby" />
+
+      <h2 class="safari-text">
+        Our Little Explorer<br>
+        is Turning ONE!
+      </h2>
+
+      <button class="safari-btn">
+        Join The Adventure →
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 3 - JOURNAL
+  ========================== -->
+
+  <section class="safari-screen journal">
+
+    <div class="journal-book"></div>
+
+    <h2 class="journal-text">
+      YOU’RE INVITED
+    </h2>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 4 - DETAILS
+  ========================== -->
+
+  <section class="safari-screen details">
+
+    <h2 class="safari-heading">Safari Adventure</h2>
+
+    <div class="details-card">
+
+      <p>Saturday</p>
+      <p>June 25, 2026</p>
+      <p>2:00 PM</p>
+      <p>The Blue Leaf Events Pavilion</p>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 5 - MAP
+  ========================== -->
+
+  <section class="safari-screen map">
+
+    <h2 class="safari-heading">Adventure Map</h2>
+
+    <div class="map-flow">
+      <p>🏠 Start</p>
+      <p>↓</p>
+      <p>🦁 Jungle Trail</p>
+      <p>↓</p>
+      <p>📍 Party Venue</p>
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SCREEN 6 - RSVP
+  ========================== -->
+
+  <section class="safari-screen rsvp">
+
+    <h2 class="safari-heading">RSVP</h2>
+
+    <form class="rsvp-form">
+
+      <input type="text" placeholder="Name" />
+      <input type="number" placeholder="Guests" />
+      <textarea placeholder="Message"></textarea>
+
+      <button type="button">
+        Count Me In!
+      </button>
+
+    </form>
+
+  </section>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
