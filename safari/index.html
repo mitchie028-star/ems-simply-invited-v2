@@ -8,137 +8,142 @@
 </head>
 <body>
 
-  <!-- =========================
-       SCREEN 1 - INTRO
-  ========================== -->
-  <div id="screen1" class="screen">
+<!-- ================= LOADER ================= -->
+<div id="loader">
+  <div class="loader-text">Loading Safari Adventure...</div>
+</div>
 
-    <div class="bg"></div>
-    <div class="overlay"></div>
-    <div class="leaves"></div>
+<!-- ================= AUDIO LAYERS ================= -->
+<audio id="bg-sound" loop>
+  <source src="../assets/fanfare_super_mario.mp3" type="audio/mp3">
+</audio>
 
-    <h1 class="title">A Wild Adventure Awaits...</h1>
+<audio id="jungle" loop>
+  <source src="../assets/jungle.mp3" type="audio/mp3">
+</audio>
 
-    <audio id="bg-sound" loop>
-      <source src="../assets/fanfare_super_mario.mp3" type="audio/mp3">
-    </audio>
+<audio id="birds" loop>
+  <source src="../assets/birds.mp3" type="audio/mp3">
+</audio>
+
+<!-- ================= SCREEN 1 ================= -->
+<div id="screen1" class="screen">
+
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="leaves"></div>
+
+  <h1 class="title">A Wild Adventure Awaits...</h1>
+
+</div>
+
+<!-- ================= SCREEN 2 ================= -->
+<div id="screen2" class="screen hidden">
+
+  <div class="stage">
+
+    <img src="../assets/monkey.png" class="animal monkey">
+    <img src="../assets/giraffe.png" class="animal giraffe">
+    <img src="../assets/zebra.png" class="animal zebra">
+    <img src="../assets/lion.png" class="animal lion">
+    <img src="../assets/tiger.png" class="animal tiger">
+    <img src="../assets/elephant.png" class="animal elephant">
+
+    <img src="../assets/baby.png" class="baby">
+
+    <h2 class="headline">
+      Our Little Explorer<br/>
+      is Turning ONE!
+    </h2>
+
+    <button class="cta">Join The Adventure →</button>
 
   </div>
+</div>
 
-  <!-- =========================
-       SCREEN 2 - EXPLORER
-  ========================== -->
-  <div id="screen2" class="screen hidden">
+<!-- ================= SCREEN 3 ================= -->
+<div id="screen3" class="screen hidden">
 
-    <div class="stage">
+  <div class="journal-stage">
 
-      <img src="../assets/monkey.png" class="animal monkey">
-      <img src="../assets/giraffe.png" class="animal giraffe">
-      <img src="../assets/zebra.png" class="animal zebra">
-      <img src="../assets/lion.png" class="animal lion">
-      <img src="../assets/tiger.png" class="animal tiger">
-      <img src="../assets/elephant.png" class="animal elephant">
+    <div class="journal-bg"></div>
+    <div class="trees"></div>
 
-      <img src="../assets/baby.png" class="baby">
+    <div id="journal" class="journal"></div>
 
-      <h2 class="headline">
-        Our Little Explorer<br/>
-        is Turning ONE!
-      </h2>
-
-      <button class="cta">Join The Adventure →</button>
-
+    <div id="inviteText" class="invite-text hidden">
+      YOU'RE INVITED
     </div>
 
   </div>
+</div>
 
-  <!-- =========================
-       SCREEN 3 - JOURNAL
-  ========================== -->
-  <div id="screen3" class="screen hidden">
+<!-- ================= SCREEN 4 ================= -->
+<div id="screen4" class="screen hidden">
 
-    <div class="journal-stage">
+  <div class="event-bg"></div>
+  <div class="event-overlay"></div>
 
-      <div class="journal-bg"></div>
-      <div class="trees"></div>
+  <div class="event-content">
 
-      <div id="journal" class="journal"></div>
+    <h1 class="event-title">
+      ETHAN'S<br/>
+      WILD ONE SAFARI
+    </h1>
 
-      <div id="inviteText" class="invite-text hidden">
-        YOU'RE INVITED
-      </div>
-
+    <div class="event-details">
+      <p>Saturday</p>
+      <p>June 25, 2026</p>
+      <p>2:00 PM</p>
+      <p>The Blue Leaf Events Pavilion</p>
     </div>
 
+    <button class="next-btn">View Map →</button>
+
   </div>
+</div>
 
-  <!-- =========================
-       SCREEN 4 - EVENT DETAILS
-  ========================== -->
-  <div id="screen4" class="screen hidden">
+<!-- ================= SCREEN 5 ================= -->
+<div id="screen5" class="screen hidden">
 
-    <div class="event-bg"></div>
-    <div class="event-overlay"></div>
+  <div class="map-bg"></div>
+  <div class="map-overlay"></div>
 
-    <div class="event-content">
+  <div class="map-content">
 
-      <h1 class="event-title">
-        ETHAN'S<br/>
-        WILD ONE<br/>
-        SAFARI ADVENTURE
-      </h1>
+    <h1 class="map-title">Your Safari Journey</h1>
 
-      <div class="event-details">
-        <p>Saturday</p>
-        <p>June 25, 2026</p>
-        <br/>
-        <p>2:00 PM</p>
-        <br/>
-        <p>The Blue Leaf Events Pavilion</p>
-      </div>
-
-      <button class="next-btn">
-        View Adventure Map →
-      </button>
-
+    <div class="map-path">
+      🏠 Home<br/>↓<br/>
+      🦁 Jungle Trail<br/>↓<br/>
+      📍 Venue
     </div>
 
-  </div>
-
-  <!-- =========================
-       SCREEN 5 - MAP
-  ========================== -->
-  <div id="screen5" class="screen hidden">
-
-    <div class="map-bg"></div>
-    <div class="map-overlay"></div>
-
-    <div class="map-content">
-
-      <h1 class="map-title">Your Safari Journey</h1>
-
-      <div class="map-path">
-
-        <div class="map-point">🏠 Home</div>
-
-        <div class="map-line">↓</div>
-
-        <div class="map-point">🦁 Jungle Trail</div>
-
-        <div class="map-line">↓</div>
-
-        <div class="map-point">📍 Party Venue</div>
-
-      </div>
-
-      <button class="rsvp-btn">
-        Final Stop: RSVP →
-      </button>
-
-    </div>
+    <button class="rsvp-btn">Final Stop → RSVP</button>
 
   </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- ================= SCREEN 6 ================= -->
+<div id="screen6" class="screen hidden">
+
+  <div class="rsvp-bg"></div>
+  <div class="rsvp-overlay"></div>
+
+  <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+    <h1>RSVP</h1>
+
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="number" name="guests" placeholder="Guests" required>
+    <textarea name="message" placeholder="Message"></textarea>
+
+    <button type="submit">Send</button>
+
+  </form>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
