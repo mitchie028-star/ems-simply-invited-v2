@@ -1,62 +1,88 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Safari Invite</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild One Safari</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="safari">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-  <!-- BACKGROUND (ONLY ONE LAYER) -->
-  <div class="bg"></div>
-  <div class="overlay"></div>
+<!-- Scene 1 -->
+<section id="scene1" class="scene active">
+  <h1>A Wild Adventure Awaits...</h1>
+  <p>Tap anywhere</p>
+</section>
 
-  <!-- SCENES -->
-  <div id="scene1" class="scene active">
-    <h1>A Wild Adventure Awaits...</h1>
-    <p>Tap anywhere</p>
+<!-- Scene 2 -->
+<section id="scene2" class="scene">
+  <img src="./assets/boy.png" class="baby">
+  <h2>Meet the Explorer</h2>
+</section>
+
+<!-- Scene 3 -->
+<section id="scene3" class="scene">
+
+  <div class="animal-area">
+
+    <img src="./assets/parrot.png" class="parrot">
+
+    <img src="./assets/monkey.png" class="monkey">
+
+    <img src="./assets/giraffe.png" class="giraffe">
+
+    <img src="./assets/lion.png" class="lion">
+
+    <img src="./assets/elephant.png" class="elephant">
+
+    <img src="./assets/boy.png" class="baby-center">
+
   </div>
 
-  <div id="scene2" class="scene">
-    <img src="/assets/boy.png" class="baby">
-    <h2>Meet the Explorer</h2>
-  </div>
+  <h2>Let's Get Wild!</h2>
 
-  <div id="scene3" class="scene">
-    <h2>Safari Friends</h2>
+</section>
 
-    <div class="animals">
-      <img src="/assets/monkey.png">
-      <img src="/assets/lion.png">
-      <img src="/assets/girraffe.png">
-      <img src="/assets/elephant.png">
-      <img src="/assets/parrot.png">
-    </div>
-  </div>
+<!-- Scene 4 -->
+<section id="scene4" class="scene">
+  <h2>You're Invited!</h2>
 
-  <div id="scene4" class="scene">
-    <h2>You're Invited!</h2>
-    <p>June 25, 2026</p>
-    <p>2:00 PM</p>
-  </div>
+  <h3>June 25, 2026</h3>
 
-  <div id="scene5" class="scene">
-    <h2>Adventure Map</h2>
-    <p>🏠 → 🦁 → 📍 Venue</p>
-  </div>
+  <h3>2:00 PM</h3>
 
-  <div id="scene6" class="scene">
-    <h2>RSVP</h2>
+  <p>Safari Adventure Party</p>
 
-    <input id="name" placeholder="Name">
-    <input id="guests" placeholder="Guests">
-    <textarea id="message" placeholder="Message"></textarea>
+</section>
 
-    <button id="submitBtn">Send RSVP</button>
-  </div>
+<!-- Scene 5 -->
+<section id="scene5" class="scene">
+  <h2>Adventure Map</h2>
 
-  <script src="./script.js"></script>
+  <p>🏠 → 🦁 → 📍 Venue</p>
+</section>
+
+<!-- Scene 6 -->
+<section id="scene6" class="scene">
+
+  <h2>RSVP</h2>
+
+  <input id="name" placeholder="Name">
+
+  <input id="guests" placeholder="Guests">
+
+  <textarea placeholder="Message"></textarea>
+
+  <button id="submitBtn">Send RSVP</button>
+
+</section>
+
+<script src="./script.js"></script>
+
 </body>
 </html>
+```
