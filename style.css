@@ -1,88 +1,97 @@
-
-/* Base */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
+:root {
+  --mario-black: #000000;
+  --mario-blue: #049CD8;
+  --mario-yellow: #FBD000;
+  --mario-red: #E52521;
+  --mario-green: #43B047;
 }
 
-/* Background video */
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* BACKGROUND VIDEO */
 #bgVideo {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -2;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
   z-index: -1;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  color: white;
+/* PRESS START SCREEN */
+#startScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
 }
 
-.hero h1 {
+#startScreen h1 {
+  font-family: 'New Super Mario Font U', sans-serif;
+  color: var(--mario-yellow);
   font-size: 48px;
-  color: #ff4da6;
-  margin: 0;
+  animation: blink 1s infinite;
 }
 
-.hero p {
-  font-size: 18px;
+@keyframes blink {
+  50% { opacity: 0.3; }
 }
 
-/* Sections container */
-#sections {
-  margin-top: 40px;
-}
-
-/* Section card */
-.section {
-  min-height: 100vh;
+/* HERO */
+.hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  padding: 40px;
-  background: rgba(255, 240, 246, 0.88);
+  color: white;
+  padding: 20px;
 }
 
-/* Titles */
-.section h2 {
-  font-size: 34px;
-  color: #ff4da6;
-  margin-bottom: 10px;
+/* STICKER */
+.hero-sticker {
+  width: 280px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Text */
-.section p {
-  font-size: 20px;
-  max-width: 600px;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
 
-/* 🔥 BIG IMAGE FIX */
-.section img {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin-top: 20px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+/* TITLE */
+.mario-title {
+  font-family: 'New Super Mario Font U', sans-serif;
+  color: var(--mario-red);
+  text-shadow: 4px 4px 0 var(--mario-black);
+  font-size: 50px;
+  margin: 10px 0;
 }
 
-/* RSVP button */
-.rsvp-btn {
-  margin-top: 20px;
-  padding: 14px 22px;
-  background: gold;
-  color: black;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
+/* TEXT */
+.hero-text {
+  max-width: 750px;
   font-size: 16px;
+  line-height: 1.6;
+  color: white;
 }
