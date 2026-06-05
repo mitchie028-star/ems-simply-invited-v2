@@ -5,32 +5,32 @@
 }
 
 body.safari {
-  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: black;
+  overflow: hidden;
   color: white;
+  background: black;
 }
 
 /* ================= BACKGROUND ================= */
 
-.safari-bg {
+.bg {
   position: fixed;
   inset: 0;
-  background: url("/assets/safari-bg.png") center/cover no-repeat;
+  background: url("/assets/mybirthday.png") center/cover no-repeat;
   transform: scale(1.1);
   z-index: -2;
 }
 
-.safari-overlay {
+.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.55);
   z-index: -1;
 }
 
-/* ================= SCENES ================= */
+/* ================= SCENES SYSTEM (FIX CORE BUG) ================= */
 
-.safari-app {
+.app {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -44,12 +44,12 @@ body.safari {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 
   text-align: center;
 
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.6s ease;
 }
 
@@ -58,83 +58,40 @@ body.safari {
   pointer-events: auto;
 }
 
-/* ================= TEXT ================= */
+/* ================= ELEMENTS ================= */
 
-.title {
-  font-size: 2rem;
+h1, h2 {
+  max-width: 90%;
 }
-
-.text {
-  margin-top: 15px;
-  font-size: 1.4rem;
-}
-
-/* ================= BABY ================= */
 
 .baby {
-  width: 200px;
-  margin-bottom: 20px;
+  width: 180px;
 }
 
-/* ================= BUTTON ================= */
-
-.btn {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 30px;
-  background: gold;
-  font-weight: bold;
-  cursor: pointer;
+/* animals FIXED GRID (no overlap EVER) */
+.animals {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ================= ANIMALS (FIXED LAYOUT) ================= */
-
-.animal {
-  position: absolute;
-  width: 90px;
-  animation: float 3s ease-in-out infinite;
+.animals img {
+  width: 80px;
 }
 
-.monkey { top: 12%; left: 10%; }
-.lion { bottom: 15%; right: 10%; }
-.giraffe { top: 10%; right: 12%; }
-.elephant { bottom: 10%; left: 12%; }
-.parrot { top: 40%; left: 48%; }
-
-/* ================= JOURNAL ================= */
-
-.journal {
-  width: 200px;
-  height: 150px;
-  background: #8b5e3c;
-  border-radius: 12px;
-}
-
-/* ================= INVITE ================= */
-
-.invite {
-  margin-top: 20px;
-  font-size: 2rem;
-}
-
-.hidden {
-  display: none;
-}
-
-/* ================= INPUTS ================= */
-
+/* inputs */
 input, textarea {
-  margin-top: 10px;
   width: 250px;
   padding: 10px;
-  border: none;
   border-radius: 8px;
+  border: none;
 }
 
-/* ================= ANIMATIONS ================= */
+/* ================= SCENE 1 HINT ================= */
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.hint {
+  opacity: 0.6;
+  font-size: 0.9rem;
 }
