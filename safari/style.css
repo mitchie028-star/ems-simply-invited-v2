@@ -9,10 +9,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* =========================
-   SCREEN BASE
-========================= */
-
 .screen {
   width: 100vw;
   height: 100vh;
@@ -24,7 +20,7 @@ body {
 }
 
 /* =========================
-   SCREEN 1 - INTRO
+   SCREEN 1
 ========================= */
 
 .bg {
@@ -34,11 +30,6 @@ body {
   background: url("../assets/mybirthday.png") center/cover no-repeat;
   transform: scale(1.1);
   animation: zoom 10s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1.18); }
 }
 
 .overlay {
@@ -60,13 +51,9 @@ body {
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
+  to { opacity: 1; transform: translateY(-10px); }
 }
 
-/* Leaves */
 .leaves::before {
   content: "🍃 🍃 🍃 🍃 🍃 🍃";
   position: absolute;
@@ -83,14 +70,13 @@ body {
   100% { transform: translateY(120vh); }
 }
 
-/* fade out transition */
 .fade-out {
   opacity: 0;
-  transition: opacity 1.5s ease;
+  transition: 1.5s ease;
 }
 
 /* =========================
-   SCREEN 2 - EXPLORER
+   SCREEN 2
 ========================= */
 
 .stage {
@@ -101,15 +87,13 @@ body {
   overflow: hidden;
 }
 
-/* BABY */
 .baby {
   position: absolute;
   width: 180px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 2.5s ease-in-out infinite;
-  z-index: 5;
+  animation: pulse 2.5s infinite;
 }
 
 @keyframes pulse {
@@ -118,7 +102,6 @@ body {
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* HEADLINE */
 .headline {
   position: absolute;
   width: 100%;
@@ -126,38 +109,26 @@ body {
   top: 8%;
   color: white;
   font-size: 2rem;
-  opacity: 0;
-  animation: fadeInUp 2s forwards;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-}
-
-/* CTA */
 .cta {
   position: absolute;
   bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   padding: 14px 24px;
-  border: none;
   border-radius: 30px;
+  border: none;
   background: #ffcc00;
   font-weight: bold;
-  font-size: 1rem;
   cursor: pointer;
-  animation: fadeInUp 2.5s forwards;
 }
 
-/* ANIMALS */
+/* animals */
 .animal {
   position: absolute;
   width: 90px;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s infinite ease-in-out;
 }
 
 @keyframes float {
@@ -174,14 +145,13 @@ body {
 .elephant { bottom: 10%; left: 40%; }
 
 /* =========================
-   SCREEN 3 - JOURNAL
+   SCREEN 3
 ========================= */
 
 .journal-stage {
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 .journal-bg {
@@ -189,7 +159,7 @@ body {
   width: 100%;
   height: 100%;
   background: url("../assets/mybirthday.png") center/cover no-repeat;
-  filter: brightness(0.6) saturate(1.2);
+  filter: brightness(0.6);
 }
 
 .trees::before {
@@ -199,8 +169,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 3rem;
-  animation: growTrees 2.5s ease forwards;
-  opacity: 0.8;
+  animation: growTrees 2.5s forwards;
 }
 
 @keyframes growTrees {
@@ -208,21 +177,18 @@ body {
   to { transform: translateY(-40vh); }
 }
 
-/* JOURNAL */
 .journal {
   position: absolute;
   width: 220px;
   height: 160px;
-  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  background: #8b5e3c;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   cursor: pointer;
+  border-radius: 10px;
 }
 
-/* INVITE TEXT */
 .invite-text {
   position: absolute;
   width: 100%;
@@ -230,13 +196,97 @@ body {
   top: 45%;
   font-size: 3rem;
   color: white;
-  opacity: 0;
-  animation: revealText 1.5s forwards;
 }
 
-@keyframes revealText {
-  to {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
+/* =========================
+   SCREEN 4
+========================= */
+
+.event-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  animation: zoom 12s infinite alternate;
+}
+
+.event-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+
+.event-content {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.event-title {
+  font-size: 2.2rem;
+}
+
+.event-details {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.next-btn {
+  margin-top: 30px;
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   SCREEN 5 - MAP
+========================= */
+
+.map-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  filter: brightness(0.7);
+}
+
+.map-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.map-content {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.map-title {
+  font-size: 2.2rem;
+}
+
+.map-path {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+.rsvp-btn {
+  margin-top: 30px;
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
 }
