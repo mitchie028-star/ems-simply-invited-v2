@@ -4,151 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Safari Adventure Invitation</title>
+  <title>Safari Invitation</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="safari">
 
-  <!-- =========================
-       BACKGROUND LAYERS
-  ========================== -->
+  <!-- BACKGROUND -->
+  <div class="bg"></div>
+  <div class="overlay"></div>
 
-  <div class="safari-bg"></div>
-  <div class="safari-overlay"></div>
+  <!-- APP ROOT -->
+  <div id="app">
 
-  <!-- =========================
-       LOADER (OPTIONAL CINEMATIC ENTRY)
-  ========================== -->
+    <!-- SCENE 1 -->
+    <section class="scene active" id="scene1">
+      <h1>A Wild Adventure Awaits...</h1>
+    </section>
 
-  <div id="loader">
-    <div class="loader-text">Loading Safari Adventure...</div>
-  </div>
+    <!-- SCENE 2 -->
+    <section class="scene" id="scene2">
 
-  <!-- =========================
-       SCENE 1 - INTRO
-  ========================== -->
+      <img class="baby" src="/assets/baby.png" />
 
-  <section id="scene1" class="safari-screen">
-    <h1 class="safari-title">
-      A Wild Adventure Awaits...
-    </h1>
-  </section>
+      <h2>Our Little Explorer<br>is Turning ONE!</h2>
 
-  <!-- =========================
-       SCENE 2 - HERO BABY
-  ========================== -->
+      <button onclick="next()">Join The Adventure</button>
 
-  <section id="scene2" class="safari-screen hidden">
+    </section>
 
-    <div class="safari-animals">
+    <!-- SCENE 3 -->
+    <section class="scene" id="scene3">
 
-      <img src="/assets/monkey.png" class="animal monkey" />
-      <img src="/assets/giraffe.png" class="animal giraffe" />
-      <img src="/assets/lion.png" class="animal lion" />
-      <img src="/assets/elephant.png" class="animal elephant" />
-      <img src="/assets/parrot.png" class="animal parrot" />
+      <div class="journal" id="journal"></div>
 
-    </div>
+      <h2 id="inviteText" style="display:none;">YOU'RE INVITED</h2>
 
-    <img src="/assets/baby.png" class="safari-baby" />
+    </section>
 
-    <div class="safari-text">
-      Our Little Explorer<br>
-      is Turning ONE!
-    </div>
-
-    <button class="safari-btn safari-cta">
-      Join The Adventure →
-    </button>
-
-  </section>
-
-  <!-- =========================
-       SCENE 3 - JOURNAL
-  ========================== -->
-
-  <section id="scene3" class="safari-screen hidden">
-
-    <div id="journal" class="journal-book"></div>
-
-    <div id="inviteText" class="safari-text hidden">
-      YOU’RE INVITED
-    </div>
-
-  </section>
-
-  <!-- =========================
-       SCENE 4 - DETAILS
-  ========================== -->
-
-  <section id="scene4" class="safari-screen hidden">
-
-    <h2 class="safari-text">Safari Adventure</h2>
-
-    <div class="journal-book" style="height:auto; padding:20px;">
-      <p>Saturday</p>
+    <!-- SCENE 4 -->
+    <section class="scene" id="scene4">
+      <h2>Safari Adventure</h2>
       <p>June 25, 2026</p>
       <p>2:00 PM</p>
       <p>The Blue Leaf Events Pavilion</p>
-    </div>
 
-    <button class="safari-btn safari-next">
-      Next →
-    </button>
+      <button onclick="next()">Next</button>
+    </section>
 
-  </section>
+    <!-- SCENE 5 -->
+    <section class="scene" id="scene5">
+      <h2>Adventure Map</h2>
+      <p>🏠 → 🦁 → 📍 Venue</p>
 
-  <!-- =========================
-       SCENE 5 - MAP
-  ========================== -->
+      <button onclick="next()">Continue</button>
+    </section>
 
-  <section id="scene5" class="safari-screen hidden">
+    <!-- SCENE 6 -->
+    <section class="scene" id="scene6">
+      <h2>RSVP</h2>
 
-    <h2 class="safari-text">Adventure Map</h2>
-
-    <div class="journal-book" style="height:auto; padding:20px;">
-
-      <p>🏠 Start</p>
-      <p>↓</p>
-      <p>🦁 Jungle Trail</p>
-      <p>↓</p>
-      <p>📍 Party Venue</p>
-
-    </div>
-
-    <button class="safari-btn safari-next">
-      Continue →
-    </button>
-
-  </section>
-
-  <!-- =========================
-       SCENE 6 - RSVP
-  ========================== -->
-
-  <section id="scene6" class="safari-screen hidden">
-
-    <h2 class="safari-text">RSVP</h2>
-
-    <form class="rsvp-form safari-rsvp">
-
-      <input type="text" placeholder="Name" />
-      <input type="number" placeholder="Guests" />
+      <input placeholder="Name" />
+      <input placeholder="Guests" />
       <textarea placeholder="Message"></textarea>
 
-      <button type="button">
-        Count Me In!
-      </button>
+      <button onclick="submit()">Count Me In</button>
+    </section>
 
-    </form>
-
-  </section>
-
-  <!-- =========================
-       SCRIPT
-  ========================== -->
+  </div>
 
   <script src="script.js"></script>
 
