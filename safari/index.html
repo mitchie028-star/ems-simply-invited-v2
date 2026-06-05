@@ -11,16 +11,16 @@
 
 <body class="safari">
 
-  <!-- BACKGROUND -->
-  <div class="bg"></div>
-  <div class="overlay"></div>
+  <!-- BACKGROUND (ISOLATED) -->
+  <div class="safari-bg"></div>
+  <div class="safari-overlay"></div>
 
-  <!-- APP ROOT -->
-  <div id="app">
+  <!-- APP -->
+  <div class="safari-app">
 
     <!-- SCENE 1 -->
     <section class="scene active" id="scene1">
-      <h1>A Wild Adventure Awaits...</h1>
+      <h1 class="title">A Wild Adventure Awaits...</h1>
     </section>
 
     <!-- SCENE 2 -->
@@ -28,9 +28,13 @@
 
       <img class="baby" src="/assets/baby.png" />
 
-      <h2>Our Little Explorer<br>is Turning ONE!</h2>
+      <h2 class="text">
+        Our Little Explorer<br>is Turning ONE!
+      </h2>
 
-      <button onclick="next()">Join The Adventure</button>
+      <button class="btn" onclick="next()">
+        Join The Adventure
+      </button>
 
     </section>
 
@@ -39,37 +43,49 @@
 
       <div class="journal" id="journal"></div>
 
-      <h2 id="inviteText" style="display:none;">YOU'RE INVITED</h2>
+      <div id="inviteText" class="invite hidden">
+        YOU’RE INVITED
+      </div>
 
     </section>
 
     <!-- SCENE 4 -->
     <section class="scene" id="scene4">
-      <h2>Safari Adventure</h2>
+
+      <h2 class="text">Safari Adventure</h2>
+
       <p>June 25, 2026</p>
       <p>2:00 PM</p>
       <p>The Blue Leaf Events Pavilion</p>
 
-      <button onclick="next()">Next</button>
+      <button class="btn" onclick="next()">Next</button>
+
     </section>
 
     <!-- SCENE 5 -->
     <section class="scene" id="scene5">
-      <h2>Adventure Map</h2>
+
+      <h2 class="text">Adventure Map</h2>
+
       <p>🏠 → 🦁 → 📍 Venue</p>
 
-      <button onclick="next()">Continue</button>
+      <button class="btn" onclick="next()">Continue</button>
+
     </section>
 
     <!-- SCENE 6 -->
     <section class="scene" id="scene6">
-      <h2>RSVP</h2>
+
+      <h2 class="text">RSVP</h2>
 
       <input placeholder="Name" />
       <input placeholder="Guests" />
       <textarea placeholder="Message"></textarea>
 
-      <button onclick="submit()">Count Me In</button>
+      <button class="btn" onclick="submitRSVP()">
+        Count Me In
+      </button>
+
     </section>
 
   </div>
