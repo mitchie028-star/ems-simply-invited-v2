@@ -7,13 +7,9 @@ const levelNumber = document.querySelector(".level-number");
 const coinSound = document.getElementById("coinSound");
 const fanfare = document.getElementById("fanfare");
 
-/* =====================================
-   PRESS START
-===================================== */
-
+/* PRESS START */
 startScreen.addEventListener("click", () => {
 
-  coinSound.currentTime = 0;
   coinSound.play().catch(() => {});
 
   startScreen.classList.add("hide");
@@ -23,12 +19,8 @@ startScreen.addEventListener("click", () => {
     hero.classList.add("show");
 
     setTimeout(() => {
-
-      coinSound.currentTime = 0;
       coinSound.play().catch(() => {});
-
       levelNumber.classList.add("show");
-
     }, 500);
 
   }, 700);
@@ -36,10 +28,14 @@ startScreen.addEventListener("click", () => {
 });
 
 
-/* =====================================
-   RSVP UNLOCK
-===================================== */
+/* AUDIO UNLOCK FIX (CRITICAL FOR VERCEL + BROWSERS) */
+document.addEventListener("click", () => {
+  coinSound.volume = 0.4;
+  fanfare.volume = 0.4;
+}, { once: true });
 
+
+/* RSVP UNLOCK */
 window.addEventListener("load", () => {
 
   const rsvp = document.getElementById("rsvpSection");
@@ -53,87 +49,47 @@ window.addEventListener("load", () => {
         unlocked = true;
 
         document.getElementById("rsvpLock").style.display = "none";
+        document.getElementById("rsvpForm").classList.remove("hidden");
 
-        document
-          .getElementById("rsvpForm")
-          .classList.remove("hidden");
-
-        fanfare.currentTime = 0;
         fanfare.play().catch(() => {});
 
-        screenShake();
         launchConfetti();
+        screenShake();
 
       }
 
     });
 
-  }, {
-    threshold: 0.6
-  });
+  }, { threshold: 0.6 });
 
   observer.observe(rsvp);
-
 });
 
 
-/* =====================================
-   SUBMIT RSVP
-===================================== */
-
+/* RSVP SUBMIT */
 function submitRSVP() {
 
-  fanfare.currentTime = 0;
   fanfare.play().catch(() => {});
-
   launchConfetti();
 
-  document
-    .getElementById("rsvpForm")
-    .classList.add("hidden");
-
-  document
-    .getElementById("victoryScreen")
-    .classList.remove("hidden");
-
+  document.getElementById("rsvpForm").classList.add("hidden");
+  document.getElementById("victoryScreen").classList.remove("hidden");
 }
 
 
-/* =====================================
-   CONFETTI
-===================================== */
-
+/* CONFETTI */
 function launchConfetti() {
-
   const end = Date.now() + 2500;
 
   (function frame() {
-
-    confetti({
-      particleCount: 8,
-      spread: 80,
-      origin: { y: 0.7 }
-    });
-
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
-
+    confetti({ particleCount: 8, spread: 80, origin: { y: 0.7 } });
+    if (Date.now() < end) requestAnimationFrame(frame);
   })();
-
 }
 
 
-/* =====================================
-   SCREEN SHAKE
-===================================== */
-
+/* SHAKE */
 function screenShake() {
-
   document.body.classList.add("shake");
-
-  setTimeout(() => {
-    document.body.classList.remove("shake");
-  }, 700);
-
+  setTimeout(() => document.body.classList.remove("shake"), 700);
 }
