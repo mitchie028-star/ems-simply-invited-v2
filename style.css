@@ -1,9 +1,9 @@
 :root {
-  --mario-black: #000000;
+  --mario-red: #E52521;
   --mario-blue: #049CD8;
   --mario-yellow: #FBD000;
-  --mario-red: #E52521;
   --mario-green: #43B047;
+  --mario-black: #000000;
 }
 
 body {
@@ -32,14 +32,15 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
+/* STICKER (FIXED SPACING) */
 .hero-sticker {
   width: 380px;
   max-width: 90%;
+  margin-bottom: 5px;
   animation: float 3s ease-in-out infinite;
-  margin-bottom: 20px;
 }
 
 @keyframes float {
@@ -48,12 +49,11 @@ body {
   100% { transform: translateY(0); }
 }
 
-/* MARIO TITLE (NES BOUNCE + COLORS) */
+/* MARIO TITLE */
 .mario-title {
   font-family: 'New Super Mario Font U', sans-serif;
   font-size: 52px;
   margin: 10px 0;
-  text-shadow: 4px 4px 0 var(--mario-black);
 
   background: linear-gradient(
     90deg,
@@ -66,6 +66,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  text-shadow: 4px 4px 0 var(--mario-black);
   animation: nesIntro 1.2s ease-out;
 }
 
@@ -86,12 +87,19 @@ body {
   }
 }
 
-/* TEXT */
+/* HERO TEXT (IMPROVED GAME CARD STYLE) */
 .hero-text {
   max-width: 750px;
-  margin: 0 auto;
-  font-size: 16px;
-  line-height: 1.6;
+  margin: 10px auto 0;
+  font-size: 17px;
+  line-height: 1.7;
+
+  background: rgba(0,0,0,0.4);
+  padding: 15px 20px;
+  border-radius: 16px;
+
+  border: 3px solid var(--mario-blue);
+  box-shadow: 6px 6px 0 var(--mario-black);
 }
 
 /* IMAGE ROW */
@@ -121,7 +129,27 @@ body {
 }
 
 .details h2 {
+  font-family: 'New Super Mario Font U', sans-serif;
   color: var(--mario-yellow);
+  text-shadow: 3px 3px 0 var(--mario-black);
+}
+
+/* MAP */
+.map {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.map h2 {
+  font-family: 'New Super Mario Font U', sans-serif;
+  color: var(--mario-yellow);
+  text-shadow: 3px 3px 0 var(--mario-black);
+}
+
+.map iframe {
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--mario-black);
+  max-width: 900px;
 }
 
 /* RSVP */
