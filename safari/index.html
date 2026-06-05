@@ -7,35 +7,40 @@
   <title>Safari Adventure Invitation</title>
 
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body class="safari">
 
   <!-- =========================
-       CINEMATIC BACKGROUND
+       BACKGROUND LAYERS
   ========================== -->
 
   <div class="safari-bg"></div>
   <div class="safari-overlay"></div>
 
   <!-- =========================
-       SCREEN 1 - INTRO
+       LOADER (OPTIONAL CINEMATIC ENTRY)
   ========================== -->
 
-  <section class="safari-screen intro active">
+  <div id="loader">
+    <div class="loader-text">Loading Safari Adventure...</div>
+  </div>
 
+  <!-- =========================
+       SCENE 1 - INTRO
+  ========================== -->
+
+  <section id="scene1" class="safari-screen">
     <h1 class="safari-title">
       A Wild Adventure Awaits...
     </h1>
-
   </section>
 
   <!-- =========================
-       SCREEN 2 - HERO BABY
+       SCENE 2 - HERO BABY
   ========================== -->
 
-  <section class="safari-screen hero">
+  <section id="scene2" class="safari-screen hidden">
 
     <div class="safari-animals">
 
@@ -47,83 +52,87 @@
 
     </div>
 
-    <div class="safari-center">
+    <img src="/assets/baby.png" class="safari-baby" />
 
-      <img src="/assets/baby.png" class="safari-baby" />
+    <div class="safari-text">
+      Our Little Explorer<br>
+      is Turning ONE!
+    </div>
 
-      <h2 class="safari-text">
-        Our Little Explorer<br>
-        is Turning ONE!
-      </h2>
+    <button class="safari-btn safari-cta">
+      Join The Adventure →
+    </button>
 
-      <button class="safari-btn">
-        Join The Adventure →
-      </button>
+  </section>
 
+  <!-- =========================
+       SCENE 3 - JOURNAL
+  ========================== -->
+
+  <section id="scene3" class="safari-screen hidden">
+
+    <div id="journal" class="journal-book"></div>
+
+    <div id="inviteText" class="safari-text hidden">
+      YOU’RE INVITED
     </div>
 
   </section>
 
   <!-- =========================
-       SCREEN 3 - JOURNAL
+       SCENE 4 - DETAILS
   ========================== -->
 
-  <section class="safari-screen journal">
+  <section id="scene4" class="safari-screen hidden">
 
-    <div class="journal-book"></div>
+    <h2 class="safari-text">Safari Adventure</h2>
 
-    <h2 class="journal-text">
-      YOU’RE INVITED
-    </h2>
-
-  </section>
-
-  <!-- =========================
-       SCREEN 4 - DETAILS
-  ========================== -->
-
-  <section class="safari-screen details">
-
-    <h2 class="safari-heading">Safari Adventure</h2>
-
-    <div class="details-card">
-
+    <div class="journal-book" style="height:auto; padding:20px;">
       <p>Saturday</p>
       <p>June 25, 2026</p>
       <p>2:00 PM</p>
       <p>The Blue Leaf Events Pavilion</p>
-
     </div>
+
+    <button class="safari-btn safari-next">
+      Next →
+    </button>
 
   </section>
 
   <!-- =========================
-       SCREEN 5 - MAP
+       SCENE 5 - MAP
   ========================== -->
 
-  <section class="safari-screen map">
+  <section id="scene5" class="safari-screen hidden">
 
-    <h2 class="safari-heading">Adventure Map</h2>
+    <h2 class="safari-text">Adventure Map</h2>
 
-    <div class="map-flow">
+    <div class="journal-book" style="height:auto; padding:20px;">
+
       <p>🏠 Start</p>
       <p>↓</p>
       <p>🦁 Jungle Trail</p>
       <p>↓</p>
       <p>📍 Party Venue</p>
+
     </div>
+
+    <button class="safari-btn safari-next">
+      Continue →
+    </button>
 
   </section>
 
   <!-- =========================
-       SCREEN 6 - RSVP
+       SCENE 6 - RSVP
   ========================== -->
 
-  <section class="safari-screen rsvp">
+  <section id="scene6" class="safari-screen hidden">
 
-    <h2 class="safari-heading">RSVP</h2>
+    <h2 class="safari-text">RSVP</h2>
 
-    <form class="rsvp-form">
+    <form class="rsvp-form safari-rsvp">
 
       <input type="text" placeholder="Name" />
       <input type="number" placeholder="Guests" />
@@ -136,6 +145,10 @@
     </form>
 
   </section>
+
+  <!-- =========================
+       SCRIPT
+  ========================== -->
 
   <script src="script.js"></script>
 
