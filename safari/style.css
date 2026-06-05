@@ -1,1 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* SCREEN */
+.screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* BACKGROUND */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  transform: scale(1.1);
+  animation: slowZoom 10s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.18); }
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+}
+
+/* TITLE */
+.title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 45%;
+  color: white;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+/* LEAVES */
+.leaves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.leaves::before {
+  content: "🍃 🍃 🍃 🍃 🍃 🍃 🍃";
+  position: absolute;
+  top: -10%;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  opacity: 0.6;
+  animation: floatLeaves 6s linear infinite;
+}
+
+@keyframes floatLeaves {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(120vh); }
+}
+
+/* FADE OUT TRANSITION (for next screen later) */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
