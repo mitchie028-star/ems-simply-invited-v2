@@ -6,24 +6,27 @@ function show(n){
   current = n;
 }
 
-function next(){
-  show(current + 1);
-}
+/* CLICK ANYWHERE STARTS FLOW */
+document.addEventListener("click", () => {
 
-/* JOURNAL */
-document.addEventListener("click", (e)=>{
-
-  if(e.target.id === "journal"){
-    document.getElementById("inviteText").classList.remove("hidden");
-
-    setTimeout(()=>{
-      next();
-    }, 1000);
+  if(current === 1){
+    show(2);
+    return;
   }
 
 });
 
-/* RSVP */
+/* AUTO FLOW AFTER SCENE 2 */
+setTimeout(() => {
+  if(current === 2) show(3);
+}, 3500);
+
+/* AUTO FLOW AFTER SCENE 3 */
+setTimeout(() => {
+  if(current === 3) show(4);
+}, 7000);
+
+/* BUTTON FREE FLOW SUPPORT */
 function submitRSVP(){
   alert("RSVP sent!");
 }
