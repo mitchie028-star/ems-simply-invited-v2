@@ -9,29 +9,34 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* SCREEN */
+/* =========================
+   SCREEN BASE
+========================= */
+
 .screen {
   width: 100vw;
   height: 100vh;
   position: relative;
 }
 
-/* BACKGROUND */
+/* =========================
+   SCREEN 1
+========================= */
+
 .bg {
   position: absolute;
   width: 100%;
   height: 100%;
   background: url("../assets/mybirthday.png") center/cover no-repeat;
   transform: scale(1.1);
-  animation: slowZoom 10s ease-in-out infinite alternate;
+  animation: zoom 10s ease-in-out infinite alternate;
 }
 
-@keyframes slowZoom {
+@keyframes zoom {
   from { transform: scale(1.1); }
   to { transform: scale(1.18); }
 }
 
-/* DARK OVERLAY */
 .overlay {
   position: absolute;
   width: 100%;
@@ -39,7 +44,6 @@ body {
   background: rgba(0,0,0,0.35);
 }
 
-/* TITLE */
 .title {
   position: absolute;
   width: 100%;
@@ -47,9 +51,8 @@ body {
   top: 45%;
   color: white;
   font-size: 2.5rem;
-  letter-spacing: 1px;
   opacity: 0;
-  animation: fadeIn 2s ease forwards;
+  animation: fadeIn 2s forwards;
 }
 
 @keyframes fadeIn {
@@ -59,32 +62,114 @@ body {
   }
 }
 
-/* LEAVES */
-.leaves {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
+/* Leaves */
 .leaves::before {
-  content: "🍃 🍃 🍃 🍃 🍃 🍃 🍃";
+  content: "🍃 🍃 🍃 🍃 🍃 🍃";
   position: absolute;
-  top: -10%;
   width: 100%;
   text-align: center;
+  top: -10%;
   font-size: 2rem;
   opacity: 0.6;
-  animation: floatLeaves 6s linear infinite;
+  animation: fall 6s linear infinite;
 }
 
-@keyframes floatLeaves {
+@keyframes fall {
   0% { transform: translateY(-20px); }
   100% { transform: translateY(120vh); }
 }
 
-/* FADE OUT TRANSITION (for next screen later) */
+/* fade out */
 .fade-out {
   opacity: 0;
   transition: opacity 1.5s ease;
 }
+
+/* =========================
+   SCREEN 2
+========================= */
+
+.hidden {
+  display: none;
+}
+
+.stage {
+  width: 100vw;
+  height: 100vh;
+  background: url("../assets/mybirthday.png") center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BABY */
+.baby {
+  position: absolute;
+  width: 180px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2.5s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* TEXT */
+.headline {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 8%;
+  color: white;
+  font-size: 2rem;
+  opacity: 0;
+  animation: fadeInUp 2s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+/* CTA */
+.cta {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 24px;
+  border: none;
+  border-radius: 30px;
+  background: #ffcc00;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  animation: fadeInUp 2.5s forwards;
+}
+
+/* ANIMALS */
+.animal {
+  position: absolute;
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* positions */
+.monkey { top: 10%; left: 15%; animation-delay: 0s; }
+.giraffe { top: 15%; right: 10%; animation-delay: 0.3s; }
+.zebra { bottom: 20%; left: 10%; animation-delay: 0.6s; }
+.lion { bottom: 15%; right: 15%; animation-delay: 0.2s; }
+.tiger { top: 35%; right: 25%; animation-delay: 0.5s; }
+.elephant { bottom: 10%; left: 40%; animation-delay: 0.4s; }
