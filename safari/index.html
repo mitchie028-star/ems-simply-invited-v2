@@ -12,102 +12,64 @@
 <body class="safari">
 
   <!-- BACKGROUND -->
-  <div class="safari-bg"></div>
-  <div class="safari-overlay"></div>
+  <div class="bg"></div>
+  <div class="overlay"></div>
 
-  <!-- APP WRAPPER -->
-  <div class="safari-app">
+  <!-- SCENES WRAPPER -->
+  <div class="app">
 
     <!-- SCENE 1 -->
     <section class="scene active" id="scene1">
-      <h1 class="title">A Wild Adventure Awaits...</h1>
+      <h1>A Wild Adventure Awaits...</h1>
+      <p class="hint">Tap anywhere to begin</p>
     </section>
 
     <!-- SCENE 2 -->
     <section class="scene" id="scene2">
-
-      <img class="baby" src="/assets/boy.png" />
-
-      <h2 class="text">
-        Our Little Explorer<br>is Turning ONE!
-      </h2>
-
-      <button class="btn" onclick="next()">
-        Join The Adventure
-      </button>
-
-    </section>
-
-    <!-- SCENE 2 ANIMALS (SAFE GRID) -->
-    <section class="scene" id="scene2b">
-
-      <img class="animal monkey" src="/assets/monkey.png">
-      <img class="animal lion" src="/assets/lion.png">
-      <img class="animal giraffe" src="/assets/giraffe.png">
-      <img class="animal elephant" src="/assets/elephant.png">
-      <img class="animal parrot" src="/assets/parrot.png">
-
-      <h2 class="text">Meet the Safari Friends</h2>
-
-      <button class="btn" onclick="next()">
-        Continue
-      </button>
-
+      <img src="/assets/boy.png" class="baby" />
+      <h2>Our Little Explorer is Turning ONE!</h2>
     </section>
 
     <!-- SCENE 3 -->
     <section class="scene" id="scene3">
+      <h2>Meet the Safari Friends</h2>
 
-      <div class="journal" id="journal"></div>
-
-      <div id="inviteText" class="invite hidden">
-        YOU’RE INVITED
+      <div class="animals">
+        <img src="/assets/monkey.png" />
+        <img src="/assets/lion.png" />
+        <img src="/assets/girraffe.png" />
+        <img src="/assets/elephant.png" />
+        <img src="/assets/parrot.png" />
       </div>
-
     </section>
 
     <!-- SCENE 4 -->
     <section class="scene" id="scene4">
-
-      <h2 class="text">Safari Adventure</h2>
-
+      <h2>You’re Invited!</h2>
       <p>June 25, 2026</p>
       <p>2:00 PM</p>
-      <p>The Blue Leaf Events Pavilion</p>
-
-      <button class="btn" onclick="next()">Next</button>
-
+      <p>Blue Leaf Events Pavilion</p>
     </section>
 
     <!-- SCENE 5 -->
     <section class="scene" id="scene5">
-
-      <h2 class="text">Adventure Map</h2>
-
+      <h2>Adventure Map</h2>
       <p>🏠 → 🦁 → 📍 Venue</p>
-
-      <button class="btn" onclick="next()">Continue</button>
-
     </section>
 
     <!-- SCENE 6 -->
     <section class="scene" id="scene6">
-
-      <h2 class="text">RSVP</h2>
+      <h2>RSVP</h2>
 
       <input placeholder="Name" />
       <input placeholder="Guests" />
       <textarea placeholder="Message"></textarea>
 
-      <button class="btn" onclick="submitRSVP()">
-        Count Me In
-      </button>
-
+      <button onclick="submitRSVP()">Send</button>
     </section>
 
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
