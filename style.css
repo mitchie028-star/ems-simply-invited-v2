@@ -1,14 +1,14 @@
 :root {
-  --mario-red: #E52521;
-  --mario-blue: #049CD8;
-  --mario-yellow: #FBD000;
-  --mario-green: #43B047;
-  --mario-black: #000;
+  --red:#E52521;
+  --blue:#049CD8;
+  --yellow:#FBD000;
+  --green:#43B047;
+  --black:#000;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
 }
 
@@ -32,20 +32,18 @@ body {
 /* PRESS START */
 #startScreen {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   z-index: 9999;
 }
 
 #startScreen h1 {
-  font-family: 'New Super Mario Font U', sans-serif;
-  font-size: 48px;
-  color: var(--mario-yellow);
+  font-family: 'New Super Mario Font U';
+  color: var(--yellow);
+  font-size: 42px;
   animation: blink 1s infinite;
 }
 
@@ -66,162 +64,170 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
   padding: 40px 20px;
   opacity: 0;
-  transform: translateY(30px);
 }
 
 .hero.show {
-  animation: heroReveal 1.2s ease-out forwards;
+  animation: heroIn 1s forwards;
 }
 
-@keyframes heroReveal {
-  0% { opacity: 0; transform: translateY(40px); }
-  60% { opacity: 1; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-content {
-  max-width: 700px;
-}
-
-/* STICKER */
 .hero-sticker {
-  width: 380px;
+  width: 320px;
   max-width: 90%;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s infinite ease-in-out;
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-content {
+  max-width: 600px;
 }
 
 /* TITLE */
 .mario-title {
-  font-family: 'New Super Mario Font U', sans-serif;
-  font-size: 52px;
-  margin: 10px 0;
-  background: linear-gradient(
-    90deg,
-    #E52521,
-    #049CD8,
-    #FBD000,
-    #43B047
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 4px 4px 0 var(--mario-black);
+  font-family: 'New Super Mario Font U';
+  text-align: center;
+}
+
+.title-top {
+  display: block;
+  font-size: 44px;
+  white-space: nowrap;
 }
 
 .level-number {
-  font-size: 1.3em;
-  color: #FBD000;
+  display: block;
+  font-size: 72px;
+  color: var(--yellow);
   text-shadow: 3px 3px 0 #000;
+  opacity: 0;
+  transform: translateY(20px) scale(0.5);
 }
 
-/* TEXT */
+.level-number.show {
+  animation: coinJump 0.9s forwards;
+}
+
+@keyframes coinJump {
+  0% { opacity:0; transform:translateY(30px) scale(0.5); }
+  40% { opacity:1; transform:translateY(-25px) scale(1.3); }
+  70% { transform:translateY(5px) scale(0.95); }
+  100% { transform:translateY(0) scale(1); opacity:1; }
+}
+
+/* HERO TEXT */
 .hero-text {
-  margin-top: 10px;
-  font-size: 17px;
-  line-height: 1.7;
   background: rgba(0,0,0,0.4);
-  padding: 15px 20px;
-  border-radius: 16px;
-  border: 3px solid var(--mario-blue);
-  box-shadow: 6px 6px 0 var(--mario-black);
+  padding: 15px;
+  border-radius: 12px;
+  border: 3px solid var(--blue);
 }
 
 /* GALLERY */
+.gallery {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.section-title {
+  font-family: 'New Super Mario Font U';
+  color: var(--yellow);
+  font-size: 24px;
+}
+
 .image-row {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 10px 20px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
-.image-row img {
-  width: 250px;
-  border-radius: 16px;
-  box-shadow: 6px 6px 0 var(--mario-black);
+.level-card img {
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 #000;
 }
 
 /* DETAILS */
-.details {
+.details,
+.map,
+.rsvp {
   text-align: center;
-  padding: 40px 20px;
-}
-
-.details h2,
-.map h2,
-.rsvp-title {
-  font-family: 'New Super Mario Font U', sans-serif;
-  color: var(--mario-yellow);
-  text-shadow: 3px 3px 0 var(--mario-black);
+  padding: 30px 15px;
 }
 
 /* MAP */
-.map {
-  text-align: center;
-  padding: 40px 20px;
-}
-
 .map iframe {
-  border-radius: 16px;
-  box-shadow: 6px 6px 0 var(--mario-black);
+  width: 100%;
+  max-width: 600px;
+  height: 280px;
+  border-radius: 12px;
 }
 
 /* RSVP */
-.rsvp {
-  text-align: center;
-  padding: 40px 20px;
+.rsvp-lock,
+.rsvp-form,
+.victory {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
 }
 
 .rsvp-lock {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 40px;
   background: #000;
-  border: 4px solid var(--mario-red);
-  border-radius: 16px;
-  font-family: 'New Super Mario Font U', sans-serif;
-  color: var(--mario-yellow);
+  border: 3px solid var(--red);
+  font-family: 'New Super Mario Font U';
 }
 
 .rsvp-form {
-  max-width: 500px;
-  margin: 20px auto;
   background: rgba(0,0,0,0.5);
-  border: 4px solid var(--mario-blue);
-  border-radius: 16px;
-  padding: 20px;
+  border: 3px solid var(--blue);
 }
 
 .rsvp-form input,
 .rsvp-form textarea {
   width: 100%;
-  margin: 10px 0;
+  margin: 8px 0;
   padding: 10px;
   border-radius: 8px;
+}
+
+.rsvp-form button {
+  background: var(--red);
+  color: white;
+  padding: 10px;
   border: none;
+  width: 100%;
+  border-radius: 8px;
 }
 
 .hidden {
   display: none;
 }
 
-/* VICTORY SCREEN */
-.victory {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 40px;
-  background: black;
-  border: 4px solid var(--mario-yellow);
-  border-radius: 16px;
-  font-family: 'New Super Mario Font U', sans-serif;
-  color: #FBD000;
-  font-size: 24px;
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .title-top {
+    font-size: 28px;
+    white-space: normal;
+  }
+
+  .level-number {
+    font-size: 52px;
+  }
 }
