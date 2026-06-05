@@ -10,15 +10,45 @@ body {
   background: black;
 }
 
-.screen {
+/* ================= SCENES ================= */
+
+.scene {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05);
 }
+
+/* cinematic vignette */
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.55));
+}
+
+/* ================= BACKGROUNDS ================= */
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+  animation: zoom 12s infinite alternate;
+}
+
+.bg1 { background-image: url("../assets/mybirthday.png"); }
+.bg2 { background-image: url("../assets/mybirthday.png"); }
+.bg3 { background-image: url("../assets/mybirthday.png"); }
+.bg4 { background-image: url("../assets/mybirthday.png"); }
+.bg5 { background-image: url("../assets/mybirthday.png"); }
 
 /* ================= LOADER ================= */
 
@@ -29,39 +59,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .loader-text {
   color: white;
+  font-size: 1.2rem;
   animation: pulse 1.5s infinite;
 }
 
-/* ================= GLOBAL EFFECTS ================= */
-
-.screen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.5));
-  pointer-events: none;
-}
-
-/* ================= SCREEN 1 ================= */
-
-.bg {
-  position: absolute;
-  inset: 0;
-  background: url("../assets/mybirthday.png") center/cover;
-  transform: scale(1.1);
-  animation: zoom 12s infinite alternate;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
+/* ================= SCENE 1 ================= */
 
 .title {
   position: absolute;
@@ -69,42 +76,28 @@ body {
   width: 100%;
   text-align: center;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
 }
 
-/* leaves */
-.leaves::before {
-  content: "🍃 🍃 🍃 🍃 🍃";
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: -10%;
-  animation: fall 6s linear infinite;
-}
-
-/* ================= SCREEN 2 ================= */
-
-.stage {
-  width: 100%;
-  height: 100%;
-  background: url("../assets/mybirthday.png") center/cover;
-}
+/* ================= SCENE 2 ================= */
 
 .baby {
   position: absolute;
+  width: 180px;
   left: 50%;
   top: 50%;
-  width: 180px;
   transform: translate(-50%, -50%);
-  animation: pulse 2.5s infinite;
+  animation: float 3s infinite ease-in-out;
 }
 
 .headline {
   position: absolute;
-  top: 8%;
+  top: 10%;
   width: 100%;
   text-align: center;
   color: white;
+  font-size: 1.8rem;
 }
 
 .cta {
@@ -113,44 +106,26 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 14px 24px;
-  background: gold;
-  border: none;
   border-radius: 30px;
+  border: none;
+  background: gold;
+  font-weight: bold;
 }
 
-/* animals */
-.animal {
-  position: absolute;
-  width: 80px;
-  animation: float 3s infinite;
-}
-
-/* ================= SCREEN 3 ================= */
-
-.journal-stage {
-  width: 100%;
-  height: 100%;
-}
-
-.journal-bg {
-  position: absolute;
-  inset: 0;
-  background: url("../assets/mybirthday.png") center/cover;
-  filter: brightness(0.6);
-}
+/* ================= SCENE 3 ================= */
 
 .journal {
   position: absolute;
   width: 200px;
   height: 150px;
+  background: #8b5e3c;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #8b5e3c;
   border-radius: 12px;
 }
 
-.invite-text {
+.invite {
   position: absolute;
   top: 45%;
   width: 100%;
@@ -159,21 +134,9 @@ body {
   color: white;
 }
 
-/* ================= SCREEN 4 ================= */
+/* ================= SCENE 4 ================= */
 
-.event-bg, .map-bg, .rsvp-bg {
-  position: absolute;
-  inset: 0;
-  background: url("../assets/mybirthday.png") center/cover;
-}
-
-.event-overlay, .map-overlay, .rsvp-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-.event-content, .map-content {
+.event {
   position: absolute;
   top: 50%;
   width: 100%;
@@ -182,31 +145,68 @@ body {
   color: white;
 }
 
-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: gold;
-  border: none;
-  border-radius: 20px;
-}
+/* ================= SCENE 5 ================= */
 
-/* ================= SCREEN 6 ================= */
-
-.rsvp-form {
+.map {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 300px;
-  padding: 20px;
-  background: rgba(0,0,0,0.7);
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
   color: white;
-  border-radius: 12px;
 }
 
-.rsvp-form input,
-.rsvp-form textarea {
+/* ================= SCENE 6 ================= */
+
+.rsvpWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 300px;
+  padding: 20px;
+  background: rgba(0,0,0,0.75);
+  border-radius: 12px;
+  color: white;
+}
+
+input, textarea {
   width: 100%;
   margin-top: 10px;
   padding: 10px;
+  border: none;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: gold;
+  font-weight: bold;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes zoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.2); }
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -54%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
 }
