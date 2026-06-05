@@ -1,213 +1,164 @@
-:root{
-  --glass: rgba(0,0,0,0.55);
-  --soft: rgba(255,255,255,0.12);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* =========================
-   GLOBAL RESET (SCOPED SAFARI ONLY)
-========================= */
-
-body.safari{
-  margin:0;
-  padding:0;
-  overflow:hidden;
+body.safari {
+  overflow: hidden;
   font-family: Arial, sans-serif;
-  background:black;
-  color:white;
+  background: black;
+  color: white;
 }
 
 /* =========================
-   SCENE SYSTEM (ISOLATED)
+   CORE SCENE SYSTEM (FIX)
 ========================= */
 
-.safari-screen{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  transition:opacity 1.2s ease, transform 1.2s ease;
+.safari-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  z-index: 1;
 }
 
-.safari-screen.hidden{
-  opacity:0;
-  pointer-events:none;
-  transform:scale(1.05);
-}
-
-/* cinematic fade vignette */
-.safari-screen::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
-  pointer-events:none;
+/* CRITICAL FIX: hidden MUST fully remove scene */
+.safari-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05);
+  z-index: -1;
 }
 
 /* =========================
-   BACKGROUND LAYER
+   BACKGROUND (ONLY ONE LAYER)
 ========================= */
 
-.safari-bg{
-  position:fixed;
-  inset:0;
-  background:url("/assets/mybirthday.png") center/cover no-repeat;
-  transform:scale(1.1);
-  animation:zoom 14s infinite alternate;
-  z-index:-3;
+.safari-bg {
+  position: fixed;
+  inset: 0;
+  background: url("/assets/mybirthday.png") center/cover no-repeat;
+  transform: scale(1.1);
+  animation: zoom 14s infinite alternate;
+  z-index: -3;
 }
 
-.safari-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:-2;
+.safari-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: -2;
 }
 
 /* =========================
-   INTRO SCREEN
+   SCENE CONTENT SAFETY LAYER
 ========================= */
 
-.safari-title{
-  font-size:2.4rem;
-  letter-spacing:1px;
-  animation:fadeIn 2s ease;
+.safari-screen > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================
-   HERO SCREEN
+   ANIMALS (NO OVERLAP BUG FIX)
 ========================= */
 
-.safari-animals{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
+.safari-animals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.animal{
-  position:absolute;
-  width:90px;
-  animation:float 3s ease-in-out infinite;
+.animal {
+  position: absolute;
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
 }
 
-.monkey{ top:10%; left:10%; }
-.giraffe{ top:12%; right:10%; }
-.lion{ bottom:15%; right:12%; }
-.elephant{ bottom:10%; left:15%; }
-.parrot{ top:40%; left:50%; }
+.monkey { top: 10%; left: 8%; }
+.giraffe { top: 12%; right: 8%; }
+.lion { bottom: 12%; right: 10%; }
+.elephant { bottom: 10%; left: 10%; }
+.parrot { top: 40%; left: 50%; }
 
-/* baby center */
-.safari-center{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
+/* =========================
+   BABY FIX (THIS WAS YOUR MAIN ISSUE)
+========================= */
 
-.safari-baby{
-  width:200px;
-  max-width:60vw;
-  animation:pulse 3s ease-in-out infinite;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-}
-
-.safari-text{
-  margin-top:15px;
-  font-size:1.4rem;
-}
-
-/* CTA */
-.safari-btn{
-  margin-top:20px;
-  padding:12px 22px;
-  border:none;
-  border-radius:30px;
-  background:gold;
-  font-weight:bold;
-  cursor:pointer;
+.safari-baby {
+  width: 220px;
+  max-width: 60vw;
+  display: block;
+  margin: 0 auto;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 3;
 }
 
 /* =========================
-   JOURNAL SCREEN
+   TEXT
 ========================= */
 
-.journal-book{
-  width:200px;
-  height:150px;
-  background:#8b5e3c;
-  border-radius:12px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
-}
-
-.journal-text{
-  margin-top:20px;
-  font-size:2rem;
+.safari-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  z-index: 3;
 }
 
 /* =========================
-   DETAILS / MAP / RSVP
+   BUTTONS
 ========================= */
 
-.safari-heading{
-  font-size:2rem;
-  margin-bottom:20px;
+.safari-btn {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  background: gold;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 3;
 }
 
-.details-card,
-.map-flow,
-.rsvp-form{
-  background:var(--glass);
-  padding:20px;
-  border-radius:14px;
-  border:1px solid var(--soft);
-  min-width:280px;
-}
+/* =========================
+   JOURNAL FIX
+========================= */
 
-/* form */
-.rsvp-form input,
-.rsvp-form textarea{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-}
-
-.rsvp-form button{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:20px;
-  background:gold;
-  font-weight:bold;
-  cursor:pointer;
+.journal-book {
+  width: 200px;
+  height: 150px;
+  background: #8b5e3c;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 /* =========================
    ANIMATIONS
 ========================= */
 
-@keyframes zoom{
-  from{ transform:scale(1.1); }
-  to{ transform:scale(1.25); }
+@keyframes zoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.25); }
 }
 
-@keyframes float{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-12px); }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-@keyframes pulse{
-  0%,100%{ transform:scale(1); }
-  50%{ transform:scale(1.05); }
-}
-
-@keyframes fadeIn{
-  from{ opacity:0; transform:translateY(20px); }
-  to{ opacity:1; transform:translateY(0); }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
