@@ -1,32 +1,55 @@
+let unlocked = false;
+
+/* PRESS START */
 document.getElementById("startScreen").addEventListener("click", function () {
 
-  // hide start screen
   this.classList.add("hide");
 
-  // reveal hero (cutscene effect)
   setTimeout(() => {
     document.querySelector(".hero").classList.add("show");
   }, 600);
 
-  // init confetti observer
-  setTimeout(initRSVPConfetti, 1200);
+  setTimeout(initRSVPGame, 1200);
 });
 
-function initRSVPConfetti() {
+/* RSVP TRIGGER */
+function initRSVPGame() {
   const rsvp = document.getElementById("rsvpSection");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        launchConfetti();
+      if (entry.isIntersecting && !unlocked) {
+        unlockRSVP();
         observer.disconnect();
       }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.7 });
 
   observer.observe(rsvp);
 }
 
+/* UNLOCK SEQUENCE */
+function unlockRSVP() {
+  unlocked = true;
+
+  document.body.classList.add("shake");
+
+  const audio = new Audio("assets/coin.mp3");
+  audio.play().catch(() => {});
+
+  setTimeout(() => {
+    document.getElementById("rsvpLock").style.display = "none";
+    document.getElementById("rsvpForm").classList.remove("hidden");
+
+    launchConfetti();
+  }, 800);
+
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+  }, 500);
+}
+
+/* CONFETTI */
 function launchConfetti() {
   const end = Date.now() + 2000;
 
@@ -42,4 +65,10 @@ function launchConfetti() {
       requestAnimationFrame(frame);
     }
   })();
+}
+
+/* SUBMIT */
+function submitRSVP() {
+  launchConfetti();
+  alert("THANK YOU PLAYER! 🎮 RSVP RECEIVED");
 }
