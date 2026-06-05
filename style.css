@@ -8,8 +8,8 @@
 
 body {
   margin: 0;
-  overflow: hidden;
   font-family: Arial, sans-serif;
+  color: white;
 }
 
 /* BACKGROUND VIDEO */
@@ -21,7 +21,6 @@ body {
   z-index: -2;
 }
 
-/* OVERLAY */
 .overlay {
   position: fixed;
   width: 100%;
@@ -30,68 +29,113 @@ body {
   z-index: -1;
 }
 
-/* PRESS START SCREEN */
-#startScreen {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-#startScreen h1 {
-  font-family: 'New Super Mario Font U', sans-serif;
-  color: var(--mario-yellow);
-  font-size: 48px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0.3; }
-}
-
 /* HERO */
 .hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  color: white;
-  padding: 20px;
+  padding: 60px 20px;
 }
 
-/* STICKER */
 .hero-sticker {
-  width: 280px;
-  margin-bottom: 20px;
+  width: 380px;
+  max-width: 90%;
   animation: float 3s ease-in-out infinite;
+  margin-bottom: 20px;
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  100% { transform: translateY(0); }
 }
 
-/* TITLE */
+/* MARIO TITLE (NES BOUNCE + COLORS) */
 .mario-title {
   font-family: 'New Super Mario Font U', sans-serif;
-  color: var(--mario-red);
-  text-shadow: 4px 4px 0 var(--mario-black);
-  font-size: 50px;
+  font-size: 52px;
   margin: 10px 0;
+  text-shadow: 4px 4px 0 var(--mario-black);
+
+  background: linear-gradient(
+    90deg,
+    #E52521,
+    #049CD8,
+    #FBD000,
+    #43B047
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: nesIntro 1.2s ease-out;
+}
+
+@keyframes nesIntro {
+  0% {
+    transform: translateY(-120px) scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(20px) scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-10px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* TEXT */
 .hero-text {
   max-width: 750px;
+  margin: 0 auto;
   font-size: 16px;
   line-height: 1.6;
+}
+
+/* IMAGE ROW */
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.image-row img {
+  width: 250px;
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--mario-black);
+  transition: transform 0.2s;
+}
+
+.image-row img:hover {
+  transform: scale(1.05);
+}
+
+/* DETAILS */
+.details {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.details h2 {
+  color: var(--mario-yellow);
+}
+
+/* RSVP */
+.rsvp {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.rsvp-btn {
+  background: var(--mario-red);
   color: white;
+  padding: 12px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
 }
