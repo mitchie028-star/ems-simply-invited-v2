@@ -1,63 +1,139 @@
 let unlocked = false;
 
-/* PRESS START */
-document.getElementById("startScreen").addEventListener("click", () => {
+const startScreen = document.getElementById("startScreen");
+const hero = document.querySelector(".hero");
+const levelNumber = document.querySelector(".level-number");
 
-  document.getElementById("startScreen").classList.add("hide");
+const coinSound = document.getElementById("coinSound");
+const fanfare = document.getElementById("fanfare");
+
+/* =====================================
+   PRESS START
+===================================== */
+
+startScreen.addEventListener("click", () => {
+
+  coinSound.currentTime = 0;
+  coinSound.play().catch(() => {});
+
+  startScreen.classList.add("hide");
 
   setTimeout(() => {
 
-    document.querySelector(".hero").classList.add("show");
+    hero.classList.add("show");
 
     setTimeout(() => {
-      document.querySelector(".level-number").classList.add("show");
+
+      coinSound.currentTime = 0;
+      coinSound.play().catch(() => {});
+
+      levelNumber.classList.add("show");
+
     }, 500);
 
-  }, 600);
+  }, 700);
+
 });
 
-/* RSVP UNLOCK */
+
+/* =====================================
+   RSVP UNLOCK
+===================================== */
+
 window.addEventListener("load", () => {
+
   const rsvp = document.getElementById("rsvpSection");
 
   const observer = new IntersectionObserver((entries) => {
+
     entries.forEach(entry => {
+
       if (entry.isIntersecting && !unlocked) {
 
         unlocked = true;
 
         document.getElementById("rsvpLock").style.display = "none";
-        document.getElementById("rsvpForm").classList.remove("hidden");
 
-        const audio = new Audio("assets/fanfare_super_mario.mp3");
-        audio.play().catch(() => {});
+        document
+          .getElementById("rsvpForm")
+          .classList.remove("hidden");
 
+        fanfare.currentTime = 0;
+        fanfare.play().catch(() => {});
+
+        screenShake();
         launchConfetti();
+
       }
+
     });
-  }, { threshold: 0.6 });
+
+  }, {
+    threshold: 0.6
+  });
 
   observer.observe(rsvp);
+
 });
 
-/* SUBMIT RSVP */
+
+/* =====================================
+   SUBMIT RSVP
+===================================== */
+
 function submitRSVP() {
 
-  const audio = new Audio("assets/fanfare_super_mario.mp3");
-  audio.play().catch(() => {});
+  fanfare.currentTime = 0;
+  fanfare.play().catch(() => {});
 
   launchConfetti();
 
-  document.getElementById("rsvpForm").classList.add("hidden");
-  document.getElementById("victoryScreen").classList.remove("hidden");
+  document
+    .getElementById("rsvpForm")
+    .classList.add("hidden");
+
+  document
+    .getElementById("victoryScreen")
+    .classList.remove("hidden");
+
 }
 
-/* CONFETTI */
+
+/* =====================================
+   CONFETTI
+===================================== */
+
 function launchConfetti() {
-  const end = Date.now() + 1500;
+
+  const end = Date.now() + 2500;
 
   (function frame() {
-    confetti({ particleCount: 6, spread: 70 });
-    if (Date.now() < end) requestAnimationFrame(frame);
+
+    confetti({
+      particleCount: 8,
+      spread: 80,
+      origin: { y: 0.7 }
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+
   })();
+
+}
+
+
+/* =====================================
+   SCREEN SHAKE
+===================================== */
+
+function screenShake() {
+
+  document.body.classList.add("shake");
+
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+  }, 700);
+
 }
