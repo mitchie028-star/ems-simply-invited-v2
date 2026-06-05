@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Princess Aiofee Turns 7 | Super Mario Party</title>
+
+  <!-- Mario Font -->
+  <link href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" rel="stylesheet">
+
+  <!-- Fun Readable Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- PRESS START SCREEN -->
+  <!-- ===================================================== -->
+
+  <div id="startScreen">
+
+    <div class="start-container">
+
+      <h1 class="start-title">
+        PRESS START
+      </h1>
+
+      <p class="start-subtitle">
+        Princess Aiofee's Super Mario Adventure
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- VIDEO BACKGROUND -->
+  <!-- ===================================================== -->
+
+  <video
+    id="bgVideo"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="assets/Intro.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- ===================================================== -->
+  <!-- HERO -->
+  <!-- ===================================================== -->
+
+  <header class="hero">
+
+    <!-- STICKER -->
+
+    <div class="hero-sticker-wrapper">
+
+      <img
+        src="assets/mybirthday.png"
+        alt="Princess Aiofee Birthday Sticker"
+        class="hero-sticker"
+      >
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="hero-content">
+
+      <h1 class="mario-title">
+
+        <span class="title-line">
+
+          <span class="m-red">Princess</span>
+          <span class="m-blue">Aiofee</span>
+          <span class="m-yellow">is turning</span>
+
+        </span>
+
+        <span class="level-number">7</span>
+
+      </h1>
+
+      <p class="hero-text">
+        Another castle? Nope, just another amazing level-up!
+
+        Aiofee is turning 7 and we are throwing a Super Mario celebration.
+
+        Join us as we jump into the fun, collect power-ups, defeat boredom,
+        and create unforgettable memories.
+
+        Let's-a-go!
+      </p>
+
+    </div>
+
+  </header>
+
+  <!-- ===================================================== -->
+  <!-- GALLERY -->
+  <!-- ===================================================== -->
+
+  <section class="gallery">
+
+    <h2 class="section-title">
+      Princess Aiofee Over the Years
+    </h2>
+
+    <div class="image-row">
+
+      <div class="card">
+
+        <img
+          src="assets/baby-level.png"
+          alt="Baby Aiofee"
+        >
+
+        <div class="card-label">
+          Level 1: Tiny Princess
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img
+          src="assets/child-level.png"
+          alt="Adventure Girl Aiofee"
+        >
+
+        <div class="card-label">
+          Level 4: Adventure Girl
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img
+          src="assets/princess-level.png"
+          alt="Princess Aiofee"
+        >
+
+        <div class="card-label">
+          Level 7: Princess Aio
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- DETAILS -->
+  <!-- ===================================================== -->
+
+  <section class="details">
+
+    <h2 class="section-title">
+      Party Details
+    </h2>
+
+    <div class="details-card">
+
+      <div class="detail-item">
+        <strong>Date</strong>
+        <span>June 14, 2026</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>Time</strong>
+        <span>11:00 AM</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>Venue</strong>
+        <span>Jollibee Puregold Luzon Commonwealth</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- MAP -->
+  <!-- ===================================================== -->
+
+  <section class="map">
+
+    <h2 class="section-title">
+      Find The Castle
+    </h2>
+
+    <div class="map-wrapper">
+
+      <iframe
+        src="https://www.google.com/maps?q=Jollibee%20Puregold%20Luzon%20Commonwealth&output=embed"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- RSVP -->
+  <!-- ===================================================== -->
+
+  <section
+    class="rsvp"
+    id="rsvpSection"
+  >
+
+    <h2 class="section-title">
+      RSVP
+    </h2>
+
+    <!-- LOCK SCREEN -->
+
+    <div
+      id="rsvpLock"
+      class="rsvp-lock"
+    >
+
+      <div class="lock-title">
+        LEVEL LOCKED
+      </div>
+
+      <p>
+        Reach this level to unlock RSVP.
+      </p>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div
+      id="rsvpForm"
+      class="rsvp-form hidden"
+    >
+
+      <input
+        type="text"
+        placeholder="Player Name"
+      >
+
+      <input
+        type="number"
+        placeholder="Number of Guests"
+      >
+
+      <textarea
+        placeholder="Message for Princess Aiofee"
+      ></textarea>
+
+      <button onclick="submitRSVP()">
+        Send RSVP
+      </button>
+
+    </div>
+
+    <!-- SUCCESS -->
+
+    <div
+      id="victoryScreen"
+      class="victory hidden"
+    >
+
+      <h3>
+        LEVEL COMPLETE!
+      </h3>
+
+      <p>
+        Thank you for your RSVP.
+      </p>
+
+      <p>
+        Princess Aiofee can't wait to celebrate with you.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- AUDIO -->
+  <!-- ===================================================== -->
+
+<audio id="coinSound" preload="auto">
+  <source src="assets/coin.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="fanfare" preload="auto">
+  <source src="assets/fanfare_super_mario.mp3" type="audio/mpeg">
+</audio>
+
+  <!-- ===================================================== -->
+  <!-- SCRIPT -->
+  <!-- ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+```
