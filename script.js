@@ -1,84 +1,62 @@
 let unlocked = false;
 
 /* PRESS START */
-document.getElementById("startScreen").addEventListener("click", function () {
+document.getElementById("startScreen").addEventListener("click", () => {
 
-  this.classList.add("hide");
+  document.getElementById("startScreen").classList.add("hide");
 
   setTimeout(() => {
     document.querySelector(".hero").classList.add("show");
+
+    setTimeout(() => {
+      document.querySelector(".level-number").classList.add("show");
+    }, 500);
+
   }, 600);
 
 });
 
-/* RSVP UNLOCK ON SCROLL */
+/* RSVP UNLOCK */
 window.addEventListener("load", () => {
   const rsvp = document.getElementById("rsvpSection");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !unlocked) {
-        unlockRSVP();
-        observer.disconnect();
+        unlocked = true;
+
+        document.getElementById("rsvpLock").style.display = "none";
+        document.getElementById("rsvpForm").classList.remove("hidden");
+
+        const audio = new Audio("assets/fanfare_super_mario.mp3");
+        audio.play().catch(() => {});
+
+        launchConfetti();
       }
     });
-  }, { threshold: 0.7 });
+  }, { threshold: 0.6 });
 
   observer.observe(rsvp);
 });
 
-/* UNLOCK */
-function unlockRSVP() {
-  unlocked = true;
-
-  document.body.classList.add("shake");
-
-  const audio = new Audio("assets/coin.mp3");
-  audio.play().catch(() => {});
-
-  setTimeout(() => {
-    document.getElementById("rsvpLock").style.display = "none";
-    document.getElementById("rsvpForm").classList.remove("hidden");
-    launchConfetti();
-  }, 800);
-
-  setTimeout(() => {
-    document.body.classList.remove("shake");
-  }, 500);
-}
-
-/* CONFETTI */
-function launchConfetti() {
-  const end = Date.now() + 2000;
-
-  (function frame() {
-    confetti({
-      particleCount: 6,
-      spread: 80,
-      startVelocity: 40,
-      origin: { x: Math.random(), y: 0.6 }
-    });
-
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
-  })();
-}
-
-/* SUBMIT → FINAL GAME END */
+/* SUBMIT */
 function submitRSVP() {
-
-  document.body.classList.add("shake");
 
   const audio = new Audio("assets/fanfare_super_mario.mp3");
   audio.play().catch(() => {});
 
   launchConfetti();
 
-  setTimeout(() => {
-    document.body.classList.remove("shake");
+  document.getElementById("rsvpForm").classList.add("hidden");
+  document.getElementById("victoryScreen").classList.remove("hidden");
+}
 
-    document.getElementById("rsvpForm").classList.add("hidden");
-    document.getElementById("victoryScreen").classList.remove("hidden");
-  }, 800);
+/* CONFETTI */
+function launchConfetti() {
+  const end = Date.now() + 1500;
+
+  (function frame() {
+    confetti({ particleCount: 6, spread: 70 });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
 }
