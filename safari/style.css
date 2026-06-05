@@ -11,6 +11,7 @@ body.safari {
   overflow: hidden;
 }
 
+/* BACKGROUND */
 .bg {
   position: fixed;
   inset: 0;
@@ -25,25 +26,36 @@ body.safari {
   z-index: -1;
 }
 
+/* SCENES FIX (IMPORTANT) */
 .scene {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  display: none;
+
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   text-align: center;
   gap: 15px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
 }
 
 .scene.active {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 
+/* CONTENT */
 .baby {
   width: 180px;
+  max-width: 60vw;
 }
 
 .animals img {
   width: 70px;
+  margin: 5px;
 }
