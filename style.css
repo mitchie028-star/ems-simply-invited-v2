@@ -1,266 +1,152 @@
-:root {
+:root{
   --red:#E52521;
   --blue:#049CD8;
   --yellow:#FBD000;
   --green:#43B047;
   --black:#000;
+  --white:#ffffff;
 }
 
-/* GLOBAL */
-body {
-  margin: 0;
-  font-family: 'Playpen Sans', sans-serif;
-  color: white;
-  background: black;
+/* =====================================
+   GLOBAL
+===================================== */
+
+*{
+  box-sizing:border-box;
 }
 
-/* VIDEO */
-#bgVideo {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+html{
+  scroll-behavior:smooth;
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
+body{
+  margin:0;
+  padding:0;
+  font-family:'Playpen Sans',sans-serif;
+  color:white;
+  background:black;
+  overflow-x:hidden;
 }
 
-/* =========================
+/* =====================================
+   VIDEO BACKGROUND
+===================================== */
+
+#bgVideo{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-3;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.50);
+  z-index:-2;
+}
+
+/* =====================================
    PRESS START
-========================= */
-#startScreen {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+===================================== */
+
+#startScreen{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:99999;
+  cursor:pointer;
 }
 
-#startScreen h1 {
-  font-family: 'New Super Mario Font U';
-  color: var(--yellow);
-  font-size: 44px;
-  animation: blink 1s infinite;
+.start-container{
+  padding:20px;
 }
 
-@keyframes blink {
-  50% { opacity: 0.3; }
+.start-title{
+  font-family:'New Super Mario Font U',sans-serif;
+  color:var(--yellow);
+  font-size:4rem;
+  margin:0;
+  animation:blink 1s infinite;
+  text-shadow:
+    4px 4px 0 black,
+    8px 8px 0 rgba(0,0,0,.25);
 }
 
-#startScreen.hide {
-  animation: fadeOut 0.8s forwards;
+.start-subtitle{
+  margin-top:15px;
+  font-size:1rem;
+  opacity:.85;
 }
 
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
+@keyframes blink{
+  50%{
+    opacity:.35;
+  }
 }
 
-/* =========================
+#startScreen.hide{
+  animation:fadeOut .8s forwards;
+}
+
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+
+/* =====================================
    HERO
-========================= */
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  padding: 40px 20px;
-  opacity: 0;
+===================================== */
+
+.hero{
+  max-width:1200px;
+  margin:auto;
+  min-height:90vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+
+  padding:30px 20px 10px;
+
+  opacity:0;
 }
 
-/* Nintendo-style logo drop */
-.hero.show {
-  animation: nintendoDrop 1.1s ease-out forwards;
+.hero.show{
+  animation:nintendoDrop 1.2s ease-out forwards;
 }
 
-@keyframes nintendoDrop {
-  0% {
-    opacity: 0;
-    transform: translateY(-120px) scale(0.7);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(10px) scale(1.05);
-  }
-  80% {
-    transform: translateY(-5px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+@keyframes nintendoDrop{
 
-.hero-sticker {
-  width: 320px;
-  max-width: 90%;
-  animation: float 3s infinite ease-in-out;
-}
-
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-.hero-content {
-  max-width: 600px;
-}
-
-/* =========================
-   TITLE
-========================= */
-.mario-title {
-  font-family: 'New Super Mario Font U';
-  text-align: center;
-}
-
-.title-line {
-  display: block;
-  font-size: 44px;
-}
-
-.level-number {
-  display: block;
-  font-size: 72px;
-  color: var(--yellow);
-  text-shadow: 3px 3px 0 #000;
-
-  opacity: 0;
-  transform: translateY(20px) scale(0.5);
-}
-
-.level-number.show {
-  animation: coinJump 0.9s forwards;
-}
-
-@keyframes coinJump {
-  0% { opacity:0; transform:translateY(30px) scale(0.5); }
-  40% { opacity:1; transform:translateY(-25px) scale(1.3); }
-  70% { transform:translateY(5px) scale(0.95); }
-  100% { transform:translateY(0) scale(1); opacity:1; }
-}
-
-/* =========================
-   TEXT
-========================= */
-.hero-text {
-  background: rgba(0,0,0,0.4);
-  padding: 15px;
-  border-radius: 12px;
-  border: 3px solid var(--blue);
-}
-
-/* =========================
-   GALLERY
-========================= */
-.gallery {
-  text-align: center;
-  padding: 30px 15px;
-}
-
-.section-title {
-  font-family: 'New Super Mario Font U';
-  color: var(--yellow);
-  font-size: 24px;
-}
-
-.image-row {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.card img {
-  width: 220px;
-  border-radius: 12px;
-  box-shadow: 4px 4px 0 #000;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-.details, .map, .rsvp {
-  text-align: center;
-  padding: 30px 15px;
-}
-
-.map iframe {
-  width: 100%;
-  max-width: 600px;
-  height: 280px;
-  border-radius: 12px;
-}
-
-/* =========================
-   RSVP
-========================= */
-.rsvp-lock,
-.rsvp-form,
-.victory {
-  max-width: 420px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.rsvp-lock {
-  background: #000;
-  border: 3px solid var(--red);
-  font-family: 'New Super Mario Font U';
-}
-
-.rsvp-form {
-  background: rgba(0,0,0,0.5);
-  border: 3px solid var(--blue);
-}
-
-.rsvp-form input,
-.rsvp-form textarea {
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 8px;
-  font-family: 'Playpen Sans';
-}
-
-.rsvp-form button {
-  background: var(--red);
-  color: white;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  border-radius: 8px;
-  font-family: 'Playpen Sans';
-}
-
-.hidden {
-  display: none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
+  0%{
+    opacity:0;
+    transform:translateY(-120px) scale(.7);
   }
 
-  .title-line {
-    font-size: 28px;
+  60%{
+    opacity:1;
+    transform:translateY(15px) scale(1.05);
   }
 
-  .level-number {
-    font-size: 52px;
+  80%{
+    transform:translateY(-5px) scale(.98);
   }
 
-  .card img {
-    width: 180px;
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
   }
 }
+
+.hero-sticker-wrapper{
+  flex:1;
+ 
