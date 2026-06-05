@@ -9,24 +9,24 @@
 
 <body class="safari">
 
+  <!-- BACKGROUND (ONLY ONE LAYER) -->
   <div class="bg"></div>
   <div class="overlay"></div>
 
-  <!-- SCENE 1 -->
-  <div class="scene active" id="scene1">
+  <!-- SCENES -->
+  <div id="scene1" class="scene active">
     <h1>A Wild Adventure Awaits...</h1>
-    <p>Tap anywhere to continue</p>
+    <p>Tap anywhere</p>
   </div>
 
-  <!-- SCENE 2 -->
-  <div class="scene" id="scene2">
+  <div id="scene2" class="scene">
     <img src="/assets/boy.png" class="baby">
     <h2>Meet the Explorer</h2>
   </div>
 
-  <!-- SCENE 3 -->
-  <div class="scene" id="scene3">
+  <div id="scene3" class="scene">
     <h2>Safari Friends</h2>
+
     <div class="animals">
       <img src="/assets/monkey.png">
       <img src="/assets/lion.png">
@@ -36,28 +36,25 @@
     </div>
   </div>
 
-  <!-- SCENE 4 -->
-  <div class="scene" id="scene4">
+  <div id="scene4" class="scene">
     <h2>You're Invited!</h2>
     <p>June 25, 2026</p>
     <p>2:00 PM</p>
   </div>
 
-  <!-- SCENE 5 -->
-  <div class="scene" id="scene5">
-    <h2>Map</h2>
+  <div id="scene5" class="scene">
+    <h2>Adventure Map</h2>
     <p>🏠 → 🦁 → 📍 Venue</p>
   </div>
 
-  <!-- SCENE 6 -->
-  <div class="scene" id="scene6">
+  <div id="scene6" class="scene">
     <h2>RSVP</h2>
 
-    <input placeholder="Name">
-    <input placeholder="Guests">
-    <textarea placeholder="Message"></textarea>
+    <input id="name" placeholder="Name">
+    <input id="guests" placeholder="Guests">
+    <textarea id="message" placeholder="Message"></textarea>
 
-    <button onclick="submitRSVP()">Send RSVP</button>
+    <button id="submitBtn">Send RSVP</button>
   </div>
 
   <script src="./script.js"></script>
